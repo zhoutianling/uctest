@@ -16,10 +16,14 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-// 用户中心接口路由
+// 注册，登陆
 Route::put('user/sigin', 'UserController@sigin');
 Route::post('user/create', 'UserController@create');
 
+// 短信
+Route::get('sms/send', 'SmsController@send');
+Route::get('sms/check', 'SmsController@check');
+    
 Route::group(['before' => 'signAuth|userAuth'], function()
 {
     // 用户
@@ -37,7 +41,5 @@ Route::group(['before' => 'signAuth|userAuth'], function()
     Route::get('feedbacks/{feedback_id}', 'FeedbacksController@detail');
     Route::post('feedbacks/create', 'FeedbacksController@create');
 
-    // 短信
-    Route::get('sms/send', 'SmsController@send');
-    Route::get('sms/check', 'SmsController@check');
+    
 });
