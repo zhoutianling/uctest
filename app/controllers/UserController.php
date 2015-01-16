@@ -120,9 +120,11 @@ class UserController extends \BaseController {
     {
         $resData = [];
 
-        if(Input::hasFile('avatar')) {
-            $resData['code']    = 1;
-            $resData['message'] = '上传头像成功';
+        if(!Input::hasFile('avatar')) {
+            $resData['code']    = 300;
+            $resData['message'] = '未添加上传文件';
+
+            return $this->result($resData);
         }
 
         $avatar = Config::get('const.user_baseinfo.avatar');
