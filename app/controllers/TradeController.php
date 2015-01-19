@@ -1,6 +1,6 @@
 <?php
 
-class AmountsController extends \BaseController {
+class TradeController extends \BaseController {
 
     /**
      * 我的交易

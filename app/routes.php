@@ -33,8 +33,8 @@ Route::group(['before' => 'signAuth|userAuth'], function()
     Route::put('user/pwd', 'UserController@pwd');
 
     // 用户充值消费
-    Route::get('amounts', 'AmountsController@index');
-    Route::post('amounts/create', 'AmountsController@create');
+    Route::get('trade', 'TradeController@index');
+    Route::post('trade/create', 'TradeController@create');
 
     // 用户反馈
     Route::get('feedbacks', 'FeedbacksController@index');
