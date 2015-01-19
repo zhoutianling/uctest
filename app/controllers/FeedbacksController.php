@@ -20,7 +20,7 @@ class FeedbacksController extends \BaseController {
             ]
         );
         if($validator->fails()) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '请求参数格式错误';
             return $this->result($resData);
         }
@@ -48,7 +48,7 @@ class FeedbacksController extends \BaseController {
             ]
         );
         if($validator->fails()) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '请求参数格式错误';
             return $this->result($resData);
         }
@@ -84,13 +84,13 @@ class FeedbacksController extends \BaseController {
             ]
         );
         if($validator->fails()) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '请求参数格式错误';
 
             return $this->result($resData);
         }
 
-        $resData['code']    = 1;
+        $resData['status']    = 1;
         $resData['message'] = '反馈提交成功';
         
         return $this->result($resData);

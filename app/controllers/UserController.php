@@ -22,7 +22,7 @@ class UserController extends \BaseController {
             ]
         );
         if($validator->fails()) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '请求参数格式错误';
 
             return $this->result($resData);
@@ -33,13 +33,13 @@ class UserController extends \BaseController {
             && Input::get('username') !== $user['email'])
             || Input::get('password') !== $user['password']
         ) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '账号或密码错误';
 
             return $this->result($resData);
         }
 
-        $resData['code']    = 1;
+        $resData['status']    = 1;
         $resData['message'] = '请求成功';
         $resData['data'] = Config::get('const.user_baseinfo');
         $resPack = msgpack_pack($resData);
@@ -71,7 +71,7 @@ class UserController extends \BaseController {
             && Input::has('code')
         ) {
             if(Input::get('code') !== Config::get('const.smsCode')) {
-                $resData['code']    = 300;
+                $resData['status']    = 300;
                 $resData['message'] = '验证码错误';
 
                 return $this->result($resData);
@@ -84,13 +84,13 @@ class UserController extends \BaseController {
         ) {
 
         } else {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '请求参数格式错误';
 
             return $this->result($resData);
         }
 
-        $resData['code']    = 1;
+        $resData['status']    = 1;
         $resData['message'] = '注册成功';
         $resData['data'] = Config::get('const.user_baseinfo');
         
@@ -121,7 +121,7 @@ class UserController extends \BaseController {
         $resData = [];
 
         if(!Input::hasFile('avatar')) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '未添加上传文件';
 
             return $this->result($resData);
@@ -159,13 +159,13 @@ class UserController extends \BaseController {
             ]
         );
         if($validator->fails()) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '请求参数格式错误';
 
             return $this->result($resData);
         }
 
-        $resData['code']    = 300;
+        $resData['status']    = 300;
         $resData['message'] = '个人资料更新成功';
         $resData['data'] = Config::get('const.user_baseinfo');
         
@@ -193,13 +193,13 @@ class UserController extends \BaseController {
             && Input::has('code')
         ) {
             if(Input::get('code') !== Config::get('const.resetCode')) {
-                $resData['code']    = 300;
+                $resData['status']    = 300;
                 $resData['message'] = '修改密码验证码错误';
 
                 return $this->result($resData);
             }
         } else {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '修改密码参数格式验证失败';
 
             return $this->result($resData);
@@ -215,7 +215,7 @@ class UserController extends \BaseController {
         );
 
         if($validator->fails()) {
-            $resData['code']    = 311;
+            $resData['status']    = 311;
             $resData['message'] = '新密码格式错误';
         }
 

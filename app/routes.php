@@ -28,7 +28,7 @@ Route::group(['before' => 'signAuth|userAuth'], function()
 {
     // 用户
     Route::get('user/info', 'UserController@info');
-    Route::put('user/avatar', 'UserController@avatar');
+    Route::post('user/avatar', 'UserController@avatar');
     Route::put('user/update', 'UserController@update');
     Route::put('user/pwd', 'UserController@pwd');
 

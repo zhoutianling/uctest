@@ -17,7 +17,7 @@ class SmsController extends \BaseController {
     );
 
         if($validator->fails()) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '参数格式验证失败';
         }
 
@@ -47,13 +47,13 @@ class SmsController extends \BaseController {
         );
 
         if($validator->fails()) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '参数格式验证失败';
             return $this->result($resData);
         }
 
         if(Input::get('code') !== Config::get('const.smsCode')) {
-            $resData['code']    = 300;
+            $resData['status']    = 300;
             $resData['message'] = '验证码错误';
 
             return $this->result($resData);

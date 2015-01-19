@@ -68,7 +68,7 @@ Route::filter('signAuth', function()
 	if ($sign !== $serverSign) {
 		$resData = [];
 
-		$resData['code']    = 200;
+		$resData['status']    = 200;
         $resData['message'] = 'SIGN验证错误';
         $resData['data']    = '';
 
@@ -90,7 +90,7 @@ Route::filter('userAuth', function()
 	if($postToken !== $serverToken) {
 		$resData = [];
 
-		$resData['code']    = 300;
+		$resData['status']    = 300;
         $resData['message'] = '用户未登录';
         $resData['data']    = '';
 
