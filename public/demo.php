@@ -2,7 +2,7 @@
 $salt = md5('salt');
 $uuid = 'abcdefg12345';
 $uriArr = [
-    'user/sigin',
+    'user/signin',
     'user/create',
     'user/info',
     'user/avatar',
@@ -20,7 +20,7 @@ foreach($uriArr as $uri) {
     $serverSign = md5($salt . $uri . $uuid . $salt);
     echo $uri . '=>' . $serverSign . '<br />';
 }
-/*user/sigin=>0cceb741f82e754e858501e1352de534
+/*user/signin=>6bdd381a649359affac08d6cc2168057
 user/create=>a61d376eff2669c48e86de7a31622578
 user/info=>bd1f4e613cc462e48e577a33fa2d769d
 user/avatar=>408a224bd03de53f8b5e9978dfe52a26
