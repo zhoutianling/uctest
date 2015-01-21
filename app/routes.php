@@ -17,7 +17,7 @@ Route::get('/', function()
 });
 
 // 注册，登陆
-Route::put('user/sigin', 'UserController@sigin');
+Route::put('user/signin', 'UserController@signin');
 Route::post('user/create', 'UserController@create');
 
 // 短信

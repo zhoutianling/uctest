@@ -7,7 +7,7 @@ class UserController extends \BaseController {
      *
      * @return Response
      **/
-    public function sigin()
+    public function signin()
     {
         $resData = [];
 
