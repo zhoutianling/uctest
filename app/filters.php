@@ -61,7 +61,7 @@ Route::filter('signAuth', function()
 	// 获取服务器salt
 	$salt = Config::get('const.salt');
 
-	$uri = Request::path();
+	$uri = '/' . Request::path();
 
 	$serverSign = md5($salt . $uri . $deviceInfo['uuid'] . $salt);
 
