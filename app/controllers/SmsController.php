@@ -19,6 +19,8 @@ class SmsController extends \BaseController {
         if($validator->fails()) {
             $resData['status']    = 300;
             $resData['message'] = '参数格式验证失败';
+
+            return $this->result($resData);
         }
 
         $resData['message'] = '短信已发送';

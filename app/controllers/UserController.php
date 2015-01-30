@@ -215,8 +215,10 @@ class UserController extends \BaseController {
         );
 
         if($validator->fails()) {
-            $resData['status']    = 311;
+            $resData['status']    = 300;
             $resData['message'] = '新密码格式错误';
+
+            return $this->result($resData);
         }
 
         $resData['message'] = '修改密码成功';
