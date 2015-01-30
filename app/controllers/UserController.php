@@ -165,7 +165,7 @@ class UserController extends \BaseController {
             return $this->result($resData);
         }
 
-        $resData['status']    = 300;
+        $resData['status']    = 1;
         $resData['message'] = '个人资料更新成功';
         $resData['data'] = Config::get('const.user_baseinfo');
         
