@@ -27,15 +27,17 @@ Route::group(['before' => 'signAuth'], function()
     // 短信
     Route::get('sms/send', 'SmsController@send');
     Route::get('sms/check', 'SmsController@check');
-        
+    
+    // 修改密码&重置密码
+    Route::put('user/pwd', 'UserController@pwd');
+
     Route::group(['before' => 'userAuth'], function()
     {
         // 用户
         Route::get('user/info', 'UserController@info');
         Route::post('user/avatar', 'UserController@avatar');
         Route::put('user/update', 'UserController@update');
-        Route::put('user/pwd', 'UserController@pwd');
-
+        
         // 用户充值消费
         Route::get('trades', 'TradesController@index');
         Route::post('trades/create', 'TradesController@create');

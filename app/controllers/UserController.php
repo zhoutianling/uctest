@@ -204,7 +204,23 @@ class UserController extends \BaseController {
             && Input::has('new_password') 
             && !Input::has('code')
         ) {
+            // 获取header参数
+            $postToken = Request::header('TOKEN');
 
+            // 获取服务器token
+            $serverToken = Config::get('const.token');
+
+            if($postToken !== $serverToken) {
+                $resData = [];
+
+                $resData['status']  = 300;
+                $resData['message'] = '用户未登录';
+                $resData['data']    = '';
+
+                $resPack = msgpack_pack($resData);
+
+                return $resPack;
+            }
         } elseif (
             !Input::has('old_password') 
             && Input::has('new_password') 
@@ -218,7 +234,7 @@ class UserController extends \BaseController {
             }
         } else {
             $resData['status']  = 300;
-            $resData['message'] = '修改密码参数格式验证失败';
+            $resData['message'] = '修改密码参数格式错误';
 
             return $this->result($resData);
         }
