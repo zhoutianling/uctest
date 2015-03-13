@@ -22,7 +22,7 @@ class TradesController extends \BaseController {
             ]
         );
         if($validator->fails()) {
-            $resData['status']    = 300;
+            $resData['status']  = 300;
             $resData['message'] = '请求参数格式错误';
 
             return $this->result($resData);
@@ -61,13 +61,13 @@ class TradesController extends \BaseController {
             ]
         );
         if($validator->fails()) {
-            $resData['status']    = 300;
+            $resData['status']  = 300;
             $resData['message'] = '请求参数格式错误';
 
             return $this->result($resData);
         }
 
-        $resData['status']    = 1;
+        $resData['status']  = 1;
         $resData['message'] = '充值记录保存成功';
         
         return $this->result($resData);

@@ -13,9 +13,9 @@ class BaseController extends Controller {
     {
         $res = [];
 
-        $res['status'] = isset($resData['status']) ? $resData['status'] : 1;
+        $res['status']  = isset($resData['status']) ? $resData['status'] : 1;
         $res['message'] = isset($resData['message']) ? $resData['message'] : '请求成功';
-        $res['data'] = isset($resData['data']) ? $resData['data'] : '';
+        $res['data']    = isset($resData['data']) ? $resData['data'] : '';
 
         // $resJson = json_encode($res);
 
