@@ -12,11 +12,12 @@ class UserController extends \BaseController {
         $resData['status']  = 1;
         $resData['message'] = '请求成功';
         $resData['data'] = '';
-        $resPack = msgpack_pack($resData);
+        // $resPack = msgpack_pack($resData);
+        $resJson = json_encode($resData, JSON_UNESCAPED_UNICODE);
 
         $salt = Config::get('const.salt');
 
-        $response = Response::make($resPack, 200);
+        $response = Response::make($resJson, 200);
         $response->header('SALT', $salt);
 
         return $response;
@@ -62,12 +63,13 @@ class UserController extends \BaseController {
         $resData['status']  = 1;
         $resData['message'] = '请求成功';
         $resData['data']    = Config::get('const.user_baseinfo');
-        $resPack = msgpack_pack($resData);
+        // $resPack = msgpack_pack($resData);
+        $resJson = json_encode($resData, JSON_UNESCAPED_UNICODE);
 
         // 将token,salt写入header
         $token = Config::get('const.token');
 
-        $response = Response::make($resPack, 200);
+        $response = Response::make($resJson, 200);
         $response->header('TOKEN', $token);
         
         return $response;
@@ -217,10 +219,24 @@ class UserController extends \BaseController {
                 $resData['message'] = '用户未登录';
                 $resData['data']    = '';
 
-                $resPack = msgpack_pack($resData);
+                // $resPack = msgpack_pack($resData);
 
-                return $resPack;
+                // return $resPack;
+
+                $resJson = json_encode($resData, JSON_UNESCAPED_UNICODE);
+
+                return $resJson;
             }
+
+            $password = Config::get('const.user.password');
+
+            if(Input::get('old_password') !== $password) {
+                $resData['status']  = 300;
+                $resData['message'] = '密码错误';
+
+                return $this->result($resData);
+            }
+
         } elseif (
             !Input::has('old_password') 
             && Input::has('new_password') 
@@ -250,7 +266,7 @@ class UserController extends \BaseController {
 
         if($validator->fails()) {
             $resData['status']  = 300;
-            $resData['message'] = '新密码格式错误';
+            $resData['message'] = '新密码格式错误（密码长度至少6位）';
 
             return $this->result($resData);
         }

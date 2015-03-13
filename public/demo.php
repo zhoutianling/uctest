@@ -33,3 +33,9 @@ foreach($uriArr as $uri) {
 /feedbacks/1=>788cce3f7e0c65dbf23afaef2a625751
 /feedbacks/create=>d3e248e92b36f7cbf85ecd6757509aa1
 /trades/create=>74848b8ba1e8de6a3f7712590ad9e961*/
+var_dump(extension_loaded("msgpack"));
+var_dump(function_exists("msgpack_pack"));
+var_dump(function_exists("msgpack_unpack"));
+var_dump(function_exists("msgpack_serialize"));
+var_dump(function_exists("msgpack_unserialize"));
+msgpack_pack($uriArr);

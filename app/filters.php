@@ -72,9 +72,13 @@ Route::filter('signAuth', function()
         $resData['message'] = 'SIGN验证错误';
         $resData['data']    = '';
 
-        $resPack = msgpack_pack($resData);
+        $resJson = json_encode($resData, JSON_UNESCAPED_UNICODE);
 
-        return $resPack;
+        return $resJson;
+
+        // $resPack = msgpack_pack($resData);
+
+        // return $resPack;
 	}
 
 });
@@ -94,13 +98,13 @@ Route::filter('userAuth', function()
         $resData['message'] = '用户未登录';
         $resData['data']    = '';
 
-        $resPack = msgpack_pack($resData);
+        // $resPack = msgpack_pack($resData);
 
-        return $resPack;
+        // return $resPack;
 
-        // $resJson = json_encode($resData);
+        $resJson = json_encode($resData, JSON_UNESCAPED_UNICODE);
 
-        // return $resJson;
+        return $resJson;
 	}
     
 });

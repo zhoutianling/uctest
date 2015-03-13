@@ -17,13 +17,13 @@ class BaseController extends Controller {
         $res['message'] = isset($resData['message']) ? $resData['message'] : '请求成功';
         $res['data']    = isset($resData['data']) ? $resData['data'] : '';
 
-        // $resJson = json_encode($res);
+        $resJson = json_encode($res, JSON_UNESCAPED_UNICODE);
 
-        // return $resJson;
+        return $resJson;
 
-        $resPack = msgpack_pack($res);
+        // $resPack = msgpack_pack($res);
 
-        return $resPack;
+        // return $resPack;
     }
 
 }
