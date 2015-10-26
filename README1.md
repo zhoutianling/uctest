@@ -7,7 +7,7 @@
 |版本|v1.0|
 |协议版本|v3.0|
 |调用方式|HTTP RESTFUL [GET POST PUT DELETE]|
-|返回格式|json|
+|返回格式|二进制加密数据|
 |返回数据|{ data:{}, message:{}, error:{}}只有data时，则直接返回data里面的数据|
 
 <br>
@@ -18,18 +18,32 @@
 |X-Update-Time|api最后更新时间|
 
 <br>
-#### **请求body实体(POST,PUT请求时需要)**
-param:{......}
-param值为msgpack(base64_encode(xxx(key+data)))
-> key为本地秘钥，data为post提交数据
+#### **请求/返回body实体**
+值为MCrypt(base64_encode(msgpack(data)))
+> key为本地秘钥，data为post提交数据或返回数据（json格式）
 
 <br>
 #### **http返回header头部参数**
 |参数|类型|说明|
 |---|---|---|
-|Link（接口2-8会有该参数返回）|{<br>"next_page":"api.example.com/x?x=x",<br>"last_page":"api.example.com/x?x=x"<br>}|上一页，最后一页链接|
+|Links（接口2-8会有该参数返回）|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|上一页，最后一页链接|
 |X-RateLimit-Limit|int(5000)|API访问限制次数|
 |X-RateLimit-Remaining|int(4999)|访问剩余次数|
+|status|200|返回状态码|
+
+|status值|说明|
+|---|---|
+|200|get请求成功|
+|201|post请求成功，并创建服务器资源|
+|204|请求成功，但不更新内容|
+|400|请求参数错误|
+|403|请求被拒绝|
+|404|找不到路径（文件）|
+|405|请求方式错误|
+|408|请求超时|
+|500|服务器出错|
+|502|无法链接服务器|
+
 
 <br>
 #### **修订历史**
@@ -40,6 +54,16 @@ param值为msgpack(base64_encode(xxx(key+data)))
 <br>
 #### **host配置文件地址**
 http://cdn.example.com/ltbl/host
+```
+{
+    "server_host":"http://www.example.com",
+    "update":{
+        "title":"苹果商店",
+        "version":"1.0.0",
+        "version_code":"1000"
+    }
+}
+```
 
 <br>
 #### **app_base_info**
@@ -64,16 +88,10 @@ http://cdn.example.com/ltbl/host
 |release_date|date|应用发布日期|
 
 <br>
-#### **使用前说明**
-- 接口1为app预加载数据接口（lua脚本组装）
-- 接口2-8，前端可用于列表分页时调取
-- 接口9-10为共享api接口，任何项目都可以调用
-
-<br>
 ## **接口**
 1.启动app时预加载主页及其他信息
 
-请求地址：{server_host}/boostrap
+请求地址：{server_host}/start
 
 |Request|Method : GET||
 |---|---|---|
@@ -81,13 +99,11 @@ http://cdn.example.com/ltbl/host
 |/|/|/|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
-|type|string|类型tabs/banner/app/topic(选项卡/轮播图/应用或游戏/专题)|
-|data|dict/list|各个类型的数据|
 返回数据格式
 ```json
 {
     "index":[$data],
-    "app":[$data],
+    "apps":[$data],
     "games":[$data],
     "ranking":[$data]
 }
@@ -97,38 +113,47 @@ $data数据格式
 [
     {
         "type":"tabs",
-            "data":[
-                {"title":"付费","activate":"true","url":"/xxx/xxx"},
-                {"title":"免费","activate":"false","url":"/xxx/xxx"},
-                {"title":"畅玩","activate":"false","url":"/xxx/xxx"}
+        "data":[
+            {"title":"精选","active":"true","url":"/index?type=choice"},
+            {"title":"专题","active":"false","url":"/index?type=topics"},
+            {"title":"大作","active":"false","url":"/index?type=epic"},
+            {"title":"必备","active":"false","url":"/index?type=necessary"},
         ]
     },
-        {
-            "type":"banner",
-            "data":[
-                {
-                    "link":"",
-                    "image_url":"",
-                    "app_id":1
-                },
-                {
-                    "link":"",
-                    "image_url":"",
-                    "app_id":2
-                }
-                ...
-            ]
-        },
-        {
-            "type":"app",
-            "data":"{app_base_info}"
-        },
-        {
-            "type":"topic",
-            "data":{
+    {
+        "type":"sliders",
+        "data":[
+            {
+                "link":"",
                 "image_url":"",
-                "topic_id":12
+                "app_id":1
+            },
+            {
+                "link":"",
+                "image_url":"",
+                "app_id":2
             }
+            ...
+        ]
+    },
+    {
+        "type":"apps",
+        "data":"{app_base_info}"
+    },
+    {
+        "type":"apps",
+        "data":"{app_base_info}"
+    },
+    {
+        "type":"apps",
+        "data":"{app_base_info}"
+    },
+    {
+        "type":"banner",
+        "data":{
+            "image_url":"",
+            "topic_id":12
+        }
     },
     ...
 ]
@@ -146,7 +171,7 @@ $data数据格式
 |limit|int|广告个数|
 |offset|int|偏移量|
 |**Respone**|**DataType : json**||
-||
+|接口2返回数据跟data结构相同|
 
 <br>
 3.首页专题列表
@@ -161,19 +186,22 @@ $data数据格式
 |**Respone**|**DataType : json**||
 |返回数据格式|||
 ```
-[
-    {
-        "title":"周年盛典版震撼开启",
-        "image_url":"",
-        "topic_id":12
-    },
-    {
-        "title":"周年盛典版震撼开启xx",
-        "image_url":"",
-        "topic_id":13
-    }
-    ...
-]
+{
+    "type":"topics",
+    "data":[
+        {
+            "title":"周年盛典版震撼开启",
+            "image_url":"",
+            "topic_id":12
+        },
+        {
+            "title":"周年盛典版震撼开启xx",
+            "image_url":"",
+            "topic_id":13
+        }
+        ...
+    ]
+}
 ```
 
 <br>
@@ -193,7 +221,7 @@ $data数据格式
 <br>
 5.应用列表
 
-请求地址：{server_host}/software
+请求地址：{server_host}/apps
 
 |Request|Method : GET||
 |---|---|---|
@@ -203,7 +231,17 @@ $data数据格式
 |type|string|类型 必备/软件最新/软件排行（necessary/new/rank）|
 |**Respone**|**DataType : json**||
 |返回数据格式|||
-|[<br>{app_base_info},<br>{app_base_info},<br>...<br>]|||
+```
+{
+    "type":"apps",
+    "data":[
+        {app_base_info},
+        {app_base_info},
+        {app_base_info},
+        ...
+    ]
+}
+```
 
 <br>
 6.游戏列表
@@ -218,12 +256,22 @@ $data数据格式
 |type|string|类型 大作/游戏最新/游戏排行（epic/new/rank）|
 |**Respone**|**DataType : json**||
 |返回数据格式|||
-|[<br>{app_base_info},<br>{app_base_info},<br>...<br>]|||
+```
+{
+    "type":"apps",
+    "data":[
+        {app_base_info},
+        {app_base_info},
+        {app_base_info},
+        ...
+    ]
+}
+```
 
 <br>
 7.榜单列表
 
-请求地址：{server_host}/ranking
+请求地址：{server_host}/tops
 
 |Request|Method : GET||
 |---|---|---|
@@ -233,12 +281,22 @@ $data数据格式
 |type|string|类型 付费/免费/畅销（pay/free/hot）|
 |**Respone**|**DataType : json**||
 |返回数据格式|||
-|[<br>{app_base_info},<br>{app_base_info},<br>...<br>]|||
+```
+{
+    "type":"apps",
+    "data":[
+        {app_base_info},
+        {app_base_info},
+        {app_base_info},
+        ...
+    ]
+}
+```
 
 <br>
 8.软件/游戏分类
 
-请求地址：{server_host}/ranking
+请求地址：{server_host}/cats
 
 |Request|Method : GET||
 |---|---|---|
@@ -247,48 +305,26 @@ $data数据格式
 |**Respone**|**DataType : json**||
 |返回数据格式|||
 ```
-[
-    {
-        "title":"音乐",
-        "image":"/xxx/xxx/xx.png",
-        "resource_count":2000
-    },
-    {
-        "title":"社交",
-        "image":"/xxx/xxx/xx.png",
-        "resource_count":2001
-    }
-    ...
-]
-```
-
-<br>
-9.苹果应用商店应用列表接口（可复用）
-
-请求地址：{server_host}/apps
-
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|param|json|包含过滤，查询，排序，分页信息|
-|**Respone**|**DataType : json**||
-|返回数据格式|||
-|[<br>{app_info},<br>{app_info},<br>...<br>]|||
-注：param参数格式说明
-```
 {
-    "field":["id","title","icon"],
-    "filter":[],
-    "sort":{"created_at":"desc","price":"desc"},
-    "limit":10,
-    "offset":0
+    "type":"cats",
+    "data":[
+        {
+            "title":"音乐",
+            "image":"/xxx/xxx/xx.png",
+            "resource_count":2000
+        },
+        {
+            "title":"社交",
+            "image":"/xxx/xxx/xx.png",
+            "resource_count":2001
+        }
+        ...
+    ]
 }
 ```
-- field只能是app_base_info中存在的字段，为空时返回字段为app_base_info对应全部字段；
-- filter查询条件参数格式参见http://document.thinkphp.cn/manual_3_2.html#query
 
 <br>
-10.应用详情页
+9.应用详情页
 
 请求地址：{server_host}/apps/{id}
 
@@ -300,7 +336,7 @@ $data数据格式
 |返回数据格式|||
 ```
 {
-    {app_base_info}
+    {app_base_info},
     "screen_shots":[
         "/xxxx/xxx.png",
         "/xxxx/xxx.png"
