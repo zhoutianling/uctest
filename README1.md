@@ -26,11 +26,11 @@
 #### **http返回header头部参数**
 |参数|类型|说明|
 |---|---|---|
-|Links（接口2-8会有该参数返回）|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|上一页，最后一页链接|
+|X-Links（接口2-8会有该参数返回）|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|上一页，最后一页链接|
 |X-RateLimit-Limit|int(5000)|API访问限制次数|
 |X-RateLimit-Remaining|int(4999)|访问剩余次数|
-|status|200|返回状态码|
 
+#### **返回状态码**
 |status值|说明|
 |---|---|
 |200|get请求成功|
@@ -56,12 +56,7 @@
 http://cdn.example.com/ltbl/host
 ```
 {
-    "server_host":"http://www.example.com",
-    "update":{
-        "title":"苹果商店",
-        "version":"1.0.0",
-        "version_code":"1000"
-    }
+    "server_host":"http://www.example.com"
 }
 ```
 
@@ -186,22 +181,25 @@ $data数据格式
 |**Respone**|**DataType : json**||
 |返回数据格式|||
 ```
-{
-    "type":"topics",
-    "data":[
-        {
+[
+    {
+        "type":"topics",
+        "data":{
             "title":"周年盛典版震撼开启",
             "image_url":"",
             "topic_id":12
-        },
-        {
-            "title":"周年盛典版震撼开启xx",
+        }
+    },
+    {
+        "type":"topics",
+        "data":{
+            "title":"周年盛典版震撼开启xxx",
             "image_url":"",
             "topic_id":13
         }
-        ...
-    ]
-}
+    },
+    ...
+]
 ```
 
 <br>
@@ -232,15 +230,17 @@ $data数据格式
 |**Respone**|**DataType : json**||
 |返回数据格式|||
 ```
-{
-    "type":"apps",
-    "data":[
-        {app_base_info},
-        {app_base_info},
-        {app_base_info},
-        ...
-    ]
-}
+[
+    {
+        "type":"apps",
+        "data":"{app_base_info}"
+    },
+    {
+        "type":"apps",
+        "data":"{app_base_info}"
+    },
+    ...
+]
 ```
 
 <br>
@@ -257,15 +257,17 @@ $data数据格式
 |**Respone**|**DataType : json**||
 |返回数据格式|||
 ```
-{
-    "type":"apps",
-    "data":[
-        {app_base_info},
-        {app_base_info},
-        {app_base_info},
-        ...
-    ]
-}
+[
+    {
+        "type":"apps",
+        "data":"{app_base_info}"
+    },
+    {
+        "type":"apps",
+        "data":"{app_base_info}"
+    },
+    ...
+]
 ```
 
 <br>
@@ -282,15 +284,17 @@ $data数据格式
 |**Respone**|**DataType : json**||
 |返回数据格式|||
 ```
-{
-    "type":"apps",
-    "data":[
-        {app_base_info},
-        {app_base_info},
-        {app_base_info},
-        ...
-    ]
-}
+[
+    {
+        "type":"apps",
+        "data":"{app_base_info}"
+    },
+    {
+        "type":"apps",
+        "data":"{app_base_info}"
+    },
+    ...
+]
 ```
 
 <br>
@@ -305,22 +309,25 @@ $data数据格式
 |**Respone**|**DataType : json**||
 |返回数据格式|||
 ```
-{
-    "type":"cats",
-    "data":[
-        {
+[
+    {
+        "type":"cats",
+        "data":{
             "title":"音乐",
             "image":"/xxx/xxx/xx.png",
             "resource_count":2000
-        },
-        {
+        }
+    },
+    {
+        "type":"cats",
+        "data":{
             "title":"社交",
             "image":"/xxx/xxx/xx.png",
             "resource_count":2001
         }
-        ...
-    ]
-}
+    },
+    ...
+]
 ```
 
 <br>
@@ -336,38 +343,41 @@ $data数据格式
 |返回数据格式|||
 ```
 {
-    {app_base_info},
-    "screen_shots":[
-        "/xxxx/xxx.png",
-        "/xxxx/xxx.png"
-        ...
-    ],
-    "guess_you_favor":[
-        {
-            "id":"22",
-            "icon_urls":"",
-            "name":"我叫MT"
-        },
-        {
-            "id":"23",
-            "icon_urls":"",
-            "name":"我叫MT2"
-        }
-        ...
-    ],
-    "same_author":[
-        {
-            "id":"22",
-            "icon_urls":"",
-            "name":"我叫MT"
-        },
-        {
-            "id":"23",
-            "icon_urls":"",
-            "name":"我叫MT2"
-        }
-        ...
-    ]
+    "type":"app_detail",
+    "data":{
+        {app_base_info},
+        "screen_shots":[
+            "/xxxx/xxx.png",
+            "/xxxx/xxx.png"
+            ...
+        ],
+        "guess_you_favor":[
+            {
+                "id":"22",
+                "icon_urls":"",
+                "name":"我叫MT"
+            },
+            {
+                "id":"23",
+                "icon_urls":"",
+                "name":"我叫MT2"
+            }
+            ...
+        ],
+        "same_author":[
+            {
+                "id":"22",
+                "icon_urls":"",
+                "name":"我叫MT"
+            },
+            {
+                "id":"23",
+                "icon_urls":"",
+                "name":"我叫MT2"
+            }
+            ...
+        ]
+    }
 }
 ```
 
