@@ -43,6 +43,7 @@
 |408|请求超时|
 |500|服务器出错|
 |502|无法链接服务器|
+|503|服务器维护中|
 
 
 <br>
@@ -132,15 +133,15 @@ $data数据格式
         ]
     },
     {
-        "type":"apps",
+        "type":"app",
         "data":"{app_base_info}"
     },
     {
-        "type":"apps",
+        "type":"app",
         "data":"{app_base_info}"
     },
     {
-        "type":"apps",
+        "type":"app",
         "data":"{app_base_info}"
     },
     {
@@ -183,7 +184,7 @@ $data数据格式
 ```
 [
     {
-        "type":"topics",
+        "type":"topic",
         "data":{
             "title":"周年盛典版震撼开启",
             "image_url":"",
@@ -191,7 +192,7 @@ $data数据格式
         }
     },
     {
-        "type":"topics",
+        "type":"topic",
         "data":{
             "title":"周年盛典版震撼开启xxx",
             "image_url":"",
@@ -232,11 +233,11 @@ $data数据格式
 ```
 [
     {
-        "type":"apps",
+        "type":"app",
         "data":"{app_base_info}"
     },
     {
-        "type":"apps",
+        "type":"app",
         "data":"{app_base_info}"
     },
     ...
@@ -259,11 +260,11 @@ $data数据格式
 ```
 [
     {
-        "type":"apps",
+        "type":"app",
         "data":"{app_base_info}"
     },
     {
-        "type":"apps",
+        "type":"app",
         "data":"{app_base_info}"
     },
     ...
@@ -286,11 +287,11 @@ $data数据格式
 ```
 [
     {
-        "type":"apps",
+        "type":"app",
         "data":"{app_base_info}"
     },
     {
-        "type":"apps",
+        "type":"app",
         "data":"{app_base_info}"
     },
     ...
@@ -311,7 +312,7 @@ $data数据格式
 ```
 [
     {
-        "type":"cats",
+        "type":"cat",
         "data":{
             "title":"音乐",
             "image":"/xxx/xxx/xx.png",
@@ -319,7 +320,7 @@ $data数据格式
         }
     },
     {
-        "type":"cats",
+        "type":"cat",
         "data":{
             "title":"社交",
             "image":"/xxx/xxx/xx.png",
