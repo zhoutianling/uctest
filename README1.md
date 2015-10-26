@@ -110,10 +110,10 @@ $data数据格式
     {
         "type":"tabs",
         "data":[
-            {"title":"精选","active":"true","url":"/index?type=choice"},
-            {"title":"专题","active":"false","url":"/index?type=topics"},
-            {"title":"大作","active":"false","url":"/index?type=epic"},
-            {"title":"必备","active":"false","url":"/index?type=necessary"},
+            {"title":"精选","active":"true","url":"/index"},
+            {"title":"专题","active":"false","url":"/topics"},
+            {"title":"大作","active":"false","url":"/games?type=epic"},
+            {"title":"必备","active":"false","url":"/apps?type=necessary"},
         ]
     },
     {
