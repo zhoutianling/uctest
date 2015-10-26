@@ -27,8 +27,6 @@
 |参数|类型|说明|
 |---|---|---|
 |X-Links（接口2-8会有该参数返回）|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|上一页，最后一页链接|
-|X-RateLimit-Limit|int(5000)|API访问限制次数|
-|X-RateLimit-Remaining|int(4999)|访问剩余次数|
 |X-Update-Time|2015-09-09 10:10:00|api最后更新时间|
 
 #### **返回状态码**
@@ -46,6 +44,25 @@
 |502|无法链接服务器|
 |503|服务器维护中|
 
+<br>
+#### **错误信息error**
+|错误名称|描述|
+|---|---|
+|missing|资源不存在|
+|missing_field|缺少参数|
+|invalid|格式错误或参数无效|
+|already_exists|字段（唯一索引）存在相同值|
+```
+{
+    "message": "验证错误",
+    "errors": [
+        {
+        "field": "title",
+        "code": "missing_field"
+        }
+    ]
+}
+```
 
 <br>
 #### **修订历史**
