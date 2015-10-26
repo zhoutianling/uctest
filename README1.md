@@ -29,6 +29,7 @@
 |X-Links（接口2-8会有该参数返回）|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|上一页，最后一页链接|
 |X-RateLimit-Limit|int(5000)|API访问限制次数|
 |X-RateLimit-Remaining|int(4999)|访问剩余次数|
+|X-Update-Time|2015-09-09 10:10:00|api最后更新时间|
 
 #### **返回状态码**
 |status值|说明|
@@ -101,7 +102,7 @@ http://cdn.example.com/ltbl/host
     "index":[$data],
     "apps":[$data],
     "games":[$data],
-    "ranking":[$data]
+    "tops":[$data]
 }
 ```
 $data数据格式
@@ -120,14 +121,14 @@ $data数据格式
         "type":"sliders",
         "data":[
             {
-                "link":"",
+                "type":"app",
                 "image_url":"",
-                "app_id":1
+                "id":1
             },
             {
-                "link":"",
+                "type":"topic",
                 "image_url":"",
-                "app_id":2
+                "id":2
             }
             ...
         ]
@@ -164,8 +165,7 @@ $data数据格式
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|limit|int|广告个数|
-|offset|int|偏移量|
+|page|int|页数|
 |**Respone**|**DataType : json**||
 |接口2返回数据跟data结构相同|
 
@@ -177,8 +177,7 @@ $data数据格式
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|limit|int|广告个数|
-|offset|int|偏移量|
+|page|int|页数|
 |**Respone**|**DataType : json**||
 |返回数据格式|||
 ```
@@ -211,8 +210,7 @@ $data数据格式
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|limit|int|广告个数|
-|offset|int|偏移量|
+|page|int|页数|
 |**Respone**|**DataType : json**||
 |返回数据格式|||
 |待定|||
@@ -225,8 +223,7 @@ $data数据格式
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|limit|int|广告个数|
-|offset|int|偏移量|
+|page|int|页数|
 |type|string|类型 必备/软件最新/软件排行（necessary/new/rank）|
 |**Respone**|**DataType : json**||
 |返回数据格式|||
@@ -252,8 +249,7 @@ $data数据格式
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|limit|int|广告个数|
-|offset|int|偏移量|
+|page|int|页数|
 |type|string|类型 大作/游戏最新/游戏排行（epic/new/rank）|
 |**Respone**|**DataType : json**||
 |返回数据格式|||
@@ -279,8 +275,7 @@ $data数据格式
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|limit|int|广告个数|
-|offset|int|偏移量|
+|page|int|页数|
 |type|string|类型 付费/免费/畅销（pay/free/hot）|
 |**Respone**|**DataType : json**||
 |返回数据格式|||
