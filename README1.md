@@ -336,7 +336,7 @@ $data数据格式
         "type":"cat",
         "data":{
             "title":"音乐",
-            "image":"/xxx/xxx/xx.png",
+            "image_url":"/xxx/xxx/xx.png",
             "resource_count":2000
         }
     },
@@ -344,7 +344,7 @@ $data数据格式
         "type":"cat",
         "data":{
             "title":"社交",
-            "image":"/xxx/xxx/xx.png",
+            "image_url":"/xxx/xxx/xx.png",
             "resource_count":2001
         }
     },
@@ -368,7 +368,7 @@ $data数据格式
     "type":"app_detail",
     "data":{
         {app_base_info},
-        "screen_shots":[
+        "screenshots":[
             "/xxxx/xxx.png",
             "/xxxx/xxx.png"
             ...
@@ -376,12 +376,12 @@ $data数据格式
         "guess_you_favor":[
             {
                 "id":"22",
-                "icon_urls":"",
+                "icon_url":"",
                 "name":"我叫MT"
             },
             {
                 "id":"23",
-                "icon_urls":"",
+                "icon_url":"",
                 "name":"我叫MT2"
             }
             ...
@@ -389,12 +389,12 @@ $data数据格式
         "same_author":[
             {
                 "id":"22",
-                "icon_urls":"",
+                "icon_url":"",
                 "name":"我叫MT"
             },
             {
                 "id":"23",
-                "icon_urls":"",
+                "icon_url":"",
                 "name":"我叫MT2"
             }
             ...
