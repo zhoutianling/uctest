@@ -26,7 +26,7 @@
 #### **http返回header头部参数**
 |参数|类型|说明|
 |---|---|---|
-|X-Links|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|上一页，最后一页链接（接口2-7会有该参数返回）|
+|X-Links|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|上一页，最后一页链接（列表页数据接口会有该参数返回）|
 |X-Update-Time|2015-09-09 10:10:00|api最后更新时间|
 |X-Retry-After|3600(s)|服务器恢复时间（503错误时会返回该参数）|
 
@@ -401,6 +401,51 @@ $data数据格式
         ]
     }
 }
+```
+
+<br>
+10.搜索框自动匹配
+
+请求地址：{server_host}/autoMatch
+
+|Request|Method : GET||
+|---|---|---|
+|参数名|类型|说明|
+|keyword|string|匹配关键字|
+|**Respone**|**DataType : json**||
+|返回数据格式（keyword为"饿"时）|||
+```
+[
+    "饿了么",
+    "饿狼传说",
+    "饿的倚天",
+    ...
+]
+```
+
+<br>
+11.应用搜索结果页
+
+请求地址：{server_host}/search
+
+|Request|Method : GET||
+|---|---|---|
+|参数名|类型|说明|
+|q|string|搜索关键字|
+|**Respone**|**DataType : json**||
+|返回数据格式|||
+```
+[
+    {
+        "type":"app",
+        "data":"{app_base_info}"
+    },
+    {
+        "type":"app",
+        "data":"{app_base_info}"
+    },
+    ...
+]
 ```
 
 <br>
