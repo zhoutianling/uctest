@@ -307,9 +307,9 @@ json文件，格式如下
             ...
         ],
         "tabs":[
-            {"id":"1","title":"攻略"},
-            {"id":"2","title":"评测"},
-            {"id":"3","title":"新闻"}
+            {"title":"攻略","type":"news","url":""},
+            {"title":"评测","type":"news","url":""},
+            {"title":"新闻","type":"news","url":""}
         ]
         "game_recommend":[
             {
