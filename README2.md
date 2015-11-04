@@ -426,7 +426,7 @@ json文件，格式如下
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|hotcats|int|热门分类id|
+|id|int|热门分类id|
 |page|int|页数|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
@@ -1099,7 +1099,7 @@ q不为空时但搜索结果为空，返回数据格式
 |Request|Method : POST||
 |---|---|---|
 |参数名|类型|说明|
-|action|string|操作字符串|
+|data|string|操作字符串|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
 |/|/|/|
