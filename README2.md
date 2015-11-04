@@ -3,7 +3,7 @@
 
 * [规格说明](#规格说明)
 * [http请求头部参数](#http请求头部参数)
-* [请求&返回body实体](#请求&返回body实体)
+* [请求&返回body实体](#body)
 * [http返回header头部参数](#http返回header头部参数)
 * [返回状态码](#返回状态码)
 * [错误信息error](#错误信息error)
@@ -48,6 +48,7 @@
 |X-Update-Time|api最后更新时间|
 
 <br>
+<a name="body" />
 #### **请求&返回body实体**
 值为MCrypt(base64_encode(msgpack(data)))
 > key为本地秘钥，data为post提交数据或返回数据（json格式）
