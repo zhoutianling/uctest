@@ -1086,7 +1086,7 @@ q不为空时但搜索结果为空，返回数据格式
 <br>
 <a name="api-22" />
 ### 22.检查更新
-请求地址：{server_host}/self-update
+请求地址：{server_host}/clients/last_release
 
 |Request|Method : GET||
 |---|---|---|
