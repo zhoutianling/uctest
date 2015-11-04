@@ -123,7 +123,7 @@ http://cdn.example.com/ltbl/host
 json文件，格式如下
 ```
 {
-    "server_host":"http://www.example.com",     // 服务器host地址
+    "gcenter_host":"http://www.example.com",     // 服务器host地址
     "ucenter_host":"http://www.example.com",    // 用户中心host地址
     "bbs_host":"http://www.example.com",        // 社区host地址
     "dcenter_host":"http://www.example.com"     // 数据中心host地址
