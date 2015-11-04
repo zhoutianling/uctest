@@ -726,7 +726,7 @@ json文件，格式如下
 <br>
 <a name="api-11" />
 ### 11.我的礼包
-请求地址：{server_host}/mygifts
+请求地址：{server_host}/gifts?owner={user_id}
 
 |Request|Method : GET||
 |---|---|---|
@@ -833,7 +833,7 @@ json文件，格式如下
 <br>
 <a name="api-14" />
 ### 14.礼包领取
-请求地址：{server_host}/gifts/{id}/codes?by=random
+请求地址：{server_host}/gifts/{id}/codes?by=order
 
 |Request|Method : POST||
 |---|---|---|
@@ -852,7 +852,7 @@ json文件，格式如下
 <br>
 <a name="api-15" />
 ### 15.活动
-请求地址：{server_host}/activity
+请求地址：{server_host}/activities
 
 |Request|Method : GET||
 |---|---|---|
@@ -1086,7 +1086,7 @@ q不为空时但搜索结果为空，返回数据格式
 <br>
 <a name="api-22" />
 ### 22.检查更新
-请求地址：{server_host}/clients/last_release
+请求地址：{server_host}/clients/releases/latest
 
 |Request|Method : GET||
 |---|---|---|
@@ -1105,23 +1105,22 @@ q不为空时但搜索结果为空，返回数据格式
     "created_at":"",
     "download_link":"",
     "feature":"",
-    "md5":"",
-    "is_force":"false",
+    "md5":""
 }
 ```
 
 <br>
 <a name="api-23" />
 ### 23.游戏管理，检测所有游戏版本
-请求地址：{server_host}/mygames
+请求地址：{server_host}/games?status=installed
 
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|data|string（json格式）|要匹配查询的游戏信息|
+|with|string（json格式）|要匹配查询的游戏信息|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
-data参数格式为
+with参数格式为
 ```
 [
     {"package":"","version":"","version_code":""},
@@ -1154,19 +1153,16 @@ data参数格式为
 ```
 [
     {
-        "type":"feedback",
+        "type":"feedback-text",
         "data":{
             "content":"呵呵哒",
             "identifyUser":"user",  // 反馈人标识user:用户，system:系统，admin:管理员
-            "image_url":"/xxx/xx.png",
-            "thumb_url":"/xxx/xxx.png",     // 缩略图
             "created_at":"2015-09-25 18:30:16"
         }
     },
     {
-        "type":"feedback",
+        "type":"feedback-image",
         "data":{
-            "content":"呵呵哒",
             "identifyUser":"user",
             "image_url":"/xxx/xx.png",
             "thumb_url":"/xxx/xxx.png",
@@ -1185,23 +1181,12 @@ data参数格式为
 |Request|Method : POST||
 |---|---|---|
 |参数名|类型|说明|
-|content|string|反馈内容|
+|content|string 或者 file|反馈内容|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
 > 返回message信息，提交失败会有error信息
 
 <br>
-<a name="api-26" />
-### 26.提交反馈图片
-请求地址：{server_host}/feedbacks/avatars
-
-|Request|Method : POST||
-|---|---|---|
-|参数名|类型|说明|
-|image|file|图片文件|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
-> 返回message信息，提交失败会有error信息
 
 
 <br/>
