@@ -164,7 +164,7 @@ json文件，格式如下
 返回数据格式
 ```
 {
-    "choice":[$data],   // 精选必玩数据（第一次启动时有该数据）
+    "necessary":[$data],   // 精选必玩数据（第一次启动时有该数据）
     "index":[$data],
     "tops":[$data],
     "cats":[$data]
@@ -323,19 +323,6 @@ json文件，格式如下
             "/xxxx/xxx.png"
             ...
         ],
-        "guess_you_favor":[
-            {
-                "id":"22",
-                "icon_url":"",
-                "name":"我叫MT"
-            },
-            {
-                "id":"23",
-                "icon_url":"",
-                "name":"我叫MT2"
-            }
-            ...
-        ],
         "tabs":[
             {"title":"攻略","type":"news","url":""},
             {"title":"评测","type":"news","url":""},
@@ -359,7 +346,14 @@ json文件，格式如下
             {"id":"2","title":"竞技"},
             {"id":"3","title":"音乐"},
             ...
-        ]
+        ],
+        "game_rating":{
+            "star1_count":"100",
+            "star2_count":"100",
+            "star3_count":"100",
+            "star4_count":"100",
+            "star5_count":"500"
+        }
     }
 }
 ```
@@ -1041,17 +1035,6 @@ q不为空时但搜索结果为空，返回数据格式
 返回数据格式
 ```
 [
-    {
-        "type":"game_rating",
-        "data":{
-            {game_base_info},
-            "star1_count":"100",
-            "star2_count":"100",
-            "star3_count":"100",
-            "star4_count":"100",
-            "star5_count":"500"
-        }
-    },
     {
         "type":"comments",
         "data":{
