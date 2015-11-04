@@ -45,7 +45,7 @@
 |协议版本|v3.0|
 |调用方式|HTTP RESTFUL [GET POST PUT DELETE]|
 |返回格式|二进制加密数据|
-|返回数据|{ data:{}, message:{}, error:{}}只有data时，则直接返回data里面的数据|
+|返回数据|{data:{}, message:{}, error:{}}|
 
 <br>
 #### **http请求头部参数**
@@ -53,12 +53,6 @@
 |----|---------------|
 |X-Client-Info|公共参数，包括如下：<br>uuid：设备唯一标识<br>imei：机器码<br>version：客户端版本<br>version_code：客户端版本代号<br>os_version：操作系统版本<br>device：设备型号<br>metrics：设备分辨率480X800<br>channel：渠道别名<br>access_token：用户登录后服务器返回的用户token，作每次请求的验证串|
 |X-Update-Time|api最后更新时间|
-
-<br>
-<a name="body" />
-#### **请求&返回body实体**
-值为MCrypt(base64_encode(msgpack(data)))
-> key为本地秘钥，data为post提交数据或返回数据（json格式）
 
 <br>
 #### **http返回header头部参数**
@@ -112,14 +106,27 @@
 ```
 
 <br>
-#### **修订历史**
-|版本|修改说明|修改人|
-|---|---|---|
-||||
+#### 加密协议
+
+AES 128位 CBC 加密
+
+|变量|值|
+|---|---|
+|KEY|待定|
+|IV|为客户端version_code|
+|SALT|nil|
+
+```
+加密
+aes.encrypt(msgpack.pack(JSON明文))
+
+解密
+aes.decrypt(msgpack.unpack(JSON密文))
+```
 
 <br>
 #### **host配置文件地址**
-http://cdn.example.com/ltbl/host
+http://apps.ttigame.com/hosts.json
 json文件，格式如下
 ```
 {
@@ -137,20 +144,20 @@ json文件，格式如下
 |id|int|应用ID|
 |name|string|应用名称|
 |alias|string|别名|
-|cat|string|分类|
-|package|string|游戏包名|
-|md5|string|安装包MD5|
-|size|int|安装包大小|
-|version|string|应用版本|
+|cat_name|string|分类|
+|package_name|string|游戏包名|
+|package_md5|string|安装包MD5|
+|package_size|int|安装包大小|
+|version_name|string|应用版本|
 |version_code|int|应用版本号|
-|author|string|作者|
-|icon|string|icon地址|
-|feature|string|更新信息|
-|summary|string|游戏介绍|
-|download_link|string|下载链接|
+|icon_url|string|icon地址|
+|changelog|string|更新信息|
+|description|string|游戏介绍|
+|download_url|string|下载链接|
 |download_count|string|下载数|
-|mark|string|角标链接|
-|forum_id|int|社区id|
+|corner_url|string|角标链接|
+|group_id|int|社区小组id|
+
 
 
 <br>
@@ -159,7 +166,7 @@ json文件，格式如下
 <a name="api-1" />
 ### 1.启动app时预加载主页及其他信息
 
-请求地址：{server_host}/start
+请求地址：{gcenter_host}/start
 
 |Request|Method : GET||
 |---|---|---|
@@ -191,7 +198,7 @@ json文件，格式如下
 <br>
 <a name="api-2" />
 ### 2.精选
-请求地址：{server_host}/index
+请求地址：{gcenter_host}/index
 
 |Request|Method : GET||
 |---|---|---|
@@ -203,7 +210,7 @@ json文件，格式如下
 ```
 [
     {
-        "type":"sliders",
+        "type":"carousel",
         "data":[
             {
                 "type":"game",
@@ -225,7 +232,7 @@ json文件，格式如下
         ]
     },
     {
-        "type":"tabs",
+        "type":"entry",
         "data":[
             {"title":"专题","type":"topic","url":""},
             {"title":"社区","type":"forum","url":""},
@@ -234,7 +241,7 @@ json文件，格式如下
         ]
     },
     {
-        "type":"s_push",
+        "type":"super_push",
         "data":"{game_base_info}"
     },
     {
@@ -252,7 +259,7 @@ json文件，格式如下
             "type":"topic",   // 其他类型game/gift/h5
             "image_url":"",
             "id":12,
-            "link":""   // 跳转h5页面时的地址
+            "url":""   // 跳转h5页面时的地址
         }
     },
     {
@@ -274,12 +281,12 @@ json文件，格式如下
 <br>
 <a name="api-3" />
 ### 3.排行
-请求地址：{server_host}/games
+请求地址：{gcenter_host}/ranking
 
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|rank|string|排行类型 单机/网游/最热/最新（offline/online/hot/new）|
+|type|string|排行类型 单机/网游/最热/最新（offline/online/hot/new）|
 |page|int|页数|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
@@ -305,7 +312,7 @@ json文件，格式如下
 <br>
 <a name="api-4" />
 ### 4.游戏详情
-请求地址：{server_host}/games/{id}
+请求地址：{gcenter_host}/games/{id}
 
 |Request|Method : GET||
 |---|---|---|
@@ -367,7 +374,7 @@ json文件，格式如下
 <br>
 <a name="api-5" />
 ### 5.分类
-请求地址：{server_host}/cats
+请求地址：{gcenter_host}/cats
 
 |Request|Method : GET||
 |---|---|---|
@@ -381,10 +388,10 @@ json文件，格式如下
     {
         "type":"hot_cats",
         "data":[
-            {"id":"","title":"","color":"","image":"/xx/xx.png"},
-            {"id":"","title":"","color":"","image":"/xx/xx.png"},
-            {"id":"","title":"","color":"","image":"/xx/xx.png"},
-            {"id":"","title":"","color":"","image":"/xx/xx.png"}
+            {"id":"","title":"","color":"","image_url":"/xx/xx.png"},
+            {"id":"","title":"","color":"","image_url":"/xx/xx.png"},
+            {"id":"","title":"","color":"","image_url":"/xx/xx.png"},
+            {"id":"","title":"","color":"","image_url":"/xx/xx.png"}
         ]
     },
     {
@@ -393,7 +400,7 @@ json文件，格式如下
             {
                 "id":"",
                 "title":"",
-                "image":"",
+                "image_url":"",
                 "tags":[
                     {"id":"","title":""},
                     {"id":"","title":""},
@@ -404,7 +411,7 @@ json文件，格式如下
             {
                 "id":"",
                 "title":"",
-                "image":"",
+                "image_url":"",
                 "tags":[
                     {"id":"","title":""},
                     {"id":"","title":""},
@@ -421,7 +428,7 @@ json文件，格式如下
 <br>
 <a name="api-6" />
 ### 6.热门分类游戏列表页
-请求地址：{server_host}/games/hotcats
+请求地址：{gcenter_host}/hotcats
 
 |Request|Method : GET||
 |---|---|---|
@@ -452,7 +459,7 @@ json文件，格式如下
 <br>
 <a name="api-7" />
 ### 7.分类的游戏列表
-请求地址：{server_host}/cats/{id}
+请求地址：{gcenter_host}/cats/{id}
 
 |Request|Method : GET||
 |---|---|---|
@@ -484,7 +491,7 @@ json文件，格式如下
 <br>
 <a name="api-8" />
 ### 8.专题列表页
-请求地址：{server_host}/topics
+请求地址：{gcenter_host}/topics
 
 |Request|Method : GET||
 |---|---|---|
@@ -529,7 +536,7 @@ json文件，格式如下
 <br>
 <a name="api-9" />
 ### 9.专题详情页
-请求地址：{server_host}/topics/{id}
+请求地址：{gcenter_host}/topics/{id}
 
 |Request|Method : GET||
 |---|---|---|
@@ -569,7 +576,7 @@ json文件，格式如下
 <br>
 <a name="api-10" />
 ### 10.礼包页
-请求地址：{server_host}/gifts
+请求地址：{gcenter_host}/gifts
 
 |Request|Method : GET||
 |---|---|---|
@@ -726,7 +733,7 @@ json文件，格式如下
 <br>
 <a name="api-11" />
 ### 11.我的礼包
-请求地址：{server_host}/gifts?owner={user_id}
+请求地址：{gcenter_host}/gifts?owner={user_id}
 
 |Request|Method : GET||
 |---|---|---|
@@ -764,7 +771,7 @@ json文件，格式如下
 <br>
 <a name="api-12" />
 ### 12.游戏的礼包列表
-请求地址：{server_host}/games/{game_id}/gifts
+请求地址：{gcenter_host}/games/{game_id}/gifts
 
 |Request|Method : GET||
 |---|---|---|
@@ -803,7 +810,7 @@ json文件，格式如下
 <br>
 <a name="api-13" />
 ### 13.礼包详情
-请求地址：{server_host}/gifts/{id}
+请求地址：{gcenter_host}/gifts/{id}
 
 |Request|Method : GET||
 |---|---|---|
@@ -833,7 +840,7 @@ json文件，格式如下
 <br>
 <a name="api-14" />
 ### 14.礼包领取
-请求地址：{server_host}/gifts/{id}/codes?by=order
+请求地址：{gcenter_host}/gifts/{id}/codes?by=order
 
 |Request|Method : POST||
 |---|---|---|
@@ -852,7 +859,7 @@ json文件，格式如下
 <br>
 <a name="api-15" />
 ### 15.活动
-请求地址：{server_host}/activities
+请求地址：{gcenter_host}/activities
 
 |Request|Method : GET||
 |---|---|---|
@@ -895,7 +902,7 @@ json文件，格式如下
 
 <a name="api-16" />
 ### 16.首发
-请求地址：{server_host}/games/debut
+请求地址：{gcenter_host}/debuts
 
 |Request|Method : GET||
 |---|---|---|
@@ -926,7 +933,7 @@ json文件，格式如下
 <br>
 <a name="api-17" />
 ### 17.搜索
-请求地址：{server_host}/search
+请求地址：{gcenter_host}/search
 
 |Request|Method : GET||
 |---|---|---|
@@ -1000,7 +1007,7 @@ q不为空时但搜索结果为空，返回数据格式
 <br>
 <a name="api-18" />
 ### 18.自动匹配
-请求地址：{server_host}/autocomplete
+请求地址：{gcenter_host}/search/autocomplete
 
 |Request|Method : GET||
 |---|---|---|
@@ -1030,7 +1037,7 @@ q不为空时但搜索结果为空，返回数据格式
 <br>
 <a name="api-19" />
 ### 19.游戏评论
-请求地址：{server_host}/games/{game_id}/comments
+请求地址：{gcenter_host}/games/{game_id}/comments
 
 |Request|Method : GET||
 |---|---|---|
@@ -1059,7 +1066,7 @@ q不为空时但搜索结果为空，返回数据格式
 <br>
 <a name="api-20" />
 ### 20.提交游戏评论
-请求地址：{server_host}/games/{game_id}/comments
+请求地址：{gcenter_host}/games/{game_id}/comments
 
 |Request|Method : POST||
 |---|---|---|
@@ -1086,7 +1093,7 @@ q不为空时但搜索结果为空，返回数据格式
 <br>
 <a name="api-22" />
 ### 22.检查更新
-请求地址：{server_host}/clients/releases/latest
+请求地址：{gcenter_host}/clients/releases/latest
 
 |Request|Method : GET||
 |---|---|---|
@@ -1112,7 +1119,7 @@ q不为空时但搜索结果为空，返回数据格式
 <br>
 <a name="api-23" />
 ### 23.游戏管理，检测所有游戏版本
-请求地址：{server_host}/games?status=installed
+请求地址：{gcenter_host}/games?status=installed
 
 |Request|Method : GET||
 |---|---|---|
@@ -1123,8 +1130,8 @@ q不为空时但搜索结果为空，返回数据格式
 with参数格式为
 ```
 [
-    {"package":"","version":"","version_code":""},
-    {"package":"","version":"","version_code":""},
+    {"package_name":"","version_name":"","version_code":""},
+    {"package_name":"","version_name":"","version_code":""},
     ...
 ]
 ```
@@ -1141,7 +1148,7 @@ with参数格式为
 <br>
 <a name="api-24" />
 ### 24.反馈信息展示
-请求地址：{server_host}/feedbacks
+请求地址：{gcenter_host}/feedbacks
 
 |Request|Method : get||
 |---|---|---|
@@ -1176,7 +1183,7 @@ with参数格式为
 <br>
 <a name="api-25" />
 ### 25.提交反馈
-请求地址：{server_host}/feedbacks
+请求地址：{gcenter_host}/feedbacks
 
 |Request|Method : POST||
 |---|---|---|
@@ -1188,15 +1195,3 @@ with参数格式为
 
 <br>
 
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
