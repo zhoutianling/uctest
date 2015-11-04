@@ -144,6 +144,7 @@ json文件，格式如下
 |download_link|string|下载链接|
 |download_count|string|下载数|
 |mark|string|角标链接|
+|forum_id|int|社区id|
 
 
 <br>
@@ -451,7 +452,7 @@ json文件，格式如下
 <br>
 <a name="api-7" />
 ### 7.分类的游戏列表
-请求地址：{server_host}/cats/{id}
+请求地址：{server_host}/cats/{id}
 
 |Request|Method : GET||
 |---|---|---|
