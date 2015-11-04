@@ -1113,7 +1113,7 @@ q不为空时但搜索结果为空，返回数据格式
 <br>
 <a name="api-23" />
 ### 23.游戏管理，检测所有游戏版本
-请求地址：{server_host}/games/match
+请求地址：{server_host}/mygames
 
 |Request|Method : GET||
 |---|---|---|
@@ -1193,7 +1193,7 @@ data参数格式为
 <br>
 <a name="api-26" />
 ### 26.提交反馈图片
-请求地址：{server_host}/feedbacks/upload
+请求地址：{server_host}/feedbacks/avatars
 
 |Request|Method : POST||
 |---|---|---|
