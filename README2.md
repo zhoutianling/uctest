@@ -32,6 +32,11 @@
   * [19.游戏评论](#api-19)
   * [20.提交游戏评论](#api-20)
   * [21.数据中心](#api-21)
+  * [22.检查更新](#api-22)
+  * [23.游戏管理，检测所有游戏版本](#api-23)
+  * [24.反馈信息展示](#api-24)
+  * [25.提交反馈](#api-25)
+  * [26.提交反馈图片](#api-26)
 
 #### **规格说明**
 |/|说明|
@@ -135,6 +140,7 @@ json文件，格式如下
 |cat|string|分类|
 |package|string|游戏包名|
 |md5|string|安装包MD5|
+|size|int|安装包大小|
 |version|string|应用版本|
 |version_code|int|应用版本号|
 |author|string|作者|
@@ -190,6 +196,7 @@ json文件，格式如下
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
+|/|/|/|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
 返回数据格式
@@ -826,7 +833,7 @@ json文件，格式如下
 <br>
 <a name="api-14" />
 ### 14.礼包领取
-请求地址：{server_host}/gifts/{id}/codes/whatever
+请求地址：{server_host}/gifts/{id}/codes?by=random
 
 |Request|Method : POST||
 |---|---|---|
@@ -1061,17 +1068,7 @@ q不为空时但搜索结果为空，返回数据格式
 |content|string|评论内容|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
-返回数据格式
-```
-{
-    "id":1,
-    "game_id":222,
-    "user_id":12,
-    "star":4,
-    "content":"好游戏，很好玩",
-}
-```
-> 提交失败会有error,message信息
+> 返回message信息，提交失败会有error信息
 
 <br>
 <a name="api-21" />
@@ -1085,6 +1082,126 @@ q不为空时但搜索结果为空，返回数据格式
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
 |/|/|/|
+
+<br>
+<a name="api-22" />
+### 22.检查更新
+请求地址：{server_host}/self-update
+
+|Request|Method : GET||
+|---|---|---|
+|/|/|/|
+|参数名|类型|说明|
+|data|string|操作字符串|
+|**Respone**|**DataType : json**||
+|参数名|类型|说明|
+返回数据格式
+```
+{
+    "version":"1.0",
+    "version_code":"1000",
+    "size":"1024",
+    "download_link":"",
+    "created_at":"",
+    "download_link":"",
+    "feature":"",
+    "md5":"",
+    "is_force":"false",
+}
+```
+
+<br>
+<a name="api-23" />
+### 23.游戏管理，检测所有游戏版本
+请求地址：{server_host}/games/match
+
+|Request|Method : GET||
+|---|---|---|
+|参数名|类型|说明|
+|data|string（json格式）|要匹配查询的游戏信息|
+|**Respone**|**DataType : json**||
+|参数名|类型|说明|
+data参数格式为
+```
+[
+    {"package":"","version":"","version_code":""},
+    {"package":"","version":"","version_code":""},
+    ...
+]
+```
+返回数据格式
+```
+[
+    {game_base_info},
+    {game_base_info},
+    {game_base_info},
+    ...
+]
+```
+
+<br>
+<a name="api-24" />
+### 24.反馈信息展示
+请求地址：{server_host}/feedbacks
+
+|Request|Method : get||
+|---|---|---|
+|参数名|类型|说明|
+|/|/|/|
+|**Respone**|**DataType : json**||
+|参数名|类型|说明|
+返回数据格式
+```
+[
+    {
+        "type":"feedback",
+        "data":{
+            "content":"呵呵哒",
+            "identifyUser":"user",  // 反馈人标识user:用户，system:系统，admin:管理员
+            "image_url":"/xxx/xx.png",
+            "thumb_url":"/xxx/xxx.png",     // 缩略图
+            "created_at":"2015-09-25 18:30:16"
+        }
+    },
+    {
+        "type":"feedback",
+        "data":{
+            "content":"呵呵哒",
+            "identifyUser":"user",
+            "image_url":"/xxx/xx.png",
+            "thumb_url":"/xxx/xxx.png",
+            "created_at":"2015-09-25 18:30:16"
+        }
+    },
+    ...
+]
+```
+
+<br>
+<a name="api-25" />
+### 25.提交反馈
+请求地址：{server_host}/feedbacks
+
+|Request|Method : POST||
+|---|---|---|
+|参数名|类型|说明|
+|content|string|反馈内容|
+|**Respone**|**DataType : json**||
+|参数名|类型|说明|
+> 返回message信息，提交失败会有error信息
+
+<br>
+<a name="api-26" />
+### 26.提交反馈图片
+请求地址：{server_host}/feedbacks/upload
+
+|Request|Method : POST||
+|---|---|---|
+|参数名|类型|说明|
+|image|file|图片文件|
+|**Respone**|**DataType : json**||
+|参数名|类型|说明|
+> 返回message信息，提交失败会有error信息
 
 
 <br/>
