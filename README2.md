@@ -3,9 +3,33 @@
 
 * [规格说明](#规格说明)
 * [http请求头部参数](#http请求头部参数)
-* [请求/返回body实体](#请求/返回body实体)
+* [请求&返回body实体](#请求/返回body实体)
 * [http返回header头部参数](#http返回header头部参数)
 * [返回状态码](#返回状态码)
+* [错误信息error](#错误信息error)
+* [修订历史](#修订历史)
+* [host配置文件地址](#host配置文件地址)
+* [game_base_info](#game_base_info)
+* [接口](#接口)
+  * [1.启动app时预加载主页及其他信息](#api-1)
+  * [2.精选](#api-2)
+  * [3.游戏列表](#api-3)
+  * [4.游戏详情](#api-4)
+  * [5.分类](#api-5)
+  * [6.热门分类游戏列表页](#api-6)
+  * [7.分类的游戏列表](#api-7)
+  * [8.专题列表页](#api-8)
+  * [9.专题详情页](#api-9)
+  * [10.礼包页](#api-10)
+  * [11.我的礼包](#api-11)
+  * [12.游戏的礼包列表](#api-12)
+  * [13.礼包详情](#api-13)
+  * [14.礼包领取](#api-14)
+  * [15.活动](#api-15)
+  * [16.搜索](#api-16)
+  * [17.自动匹配](#api-17)
+  * [18.游戏评论](#api-18)
+  * [19.提交游戏评论](#api-19)
 
 #### **规格说明**
 |/|说明|
@@ -121,26 +145,9 @@ json文件，格式如下
 
 <br>
 ## **接口**
-### 1.第一次启动应用弹出精选必玩
 
-请求地址：{server_host}/choice
-
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-返回数据格式
-```
-[
-    {game_base_info},
-    {game_base_info},
-    {game_base_info},
-    ...
-]
-```
-
-### 2.启动app时预加载主页及其他信息
+<a name="api-1" />
+### 1.启动app时预加载主页及其他信息
 
 请求地址：{server_host}/start
 
@@ -153,17 +160,27 @@ json文件，格式如下
 返回数据格式
 ```
 {
+    "choice":[$data],   // 精选必玩数据（第一次启动时有该数据）
     "index":[$data],
     "tops":[$data],
     "cats":[$data]
 }
 ```
-
-> $data数据格式分别与接口3,4和6的返回数据格式相同
+> 精选必玩data数据格式为
+```
+[
+    {game_base_info},
+    {game_base_info},
+    {game_base_info},
+    ...
+]
+```
+> 精选页/排行页/分类页$data数据格式分别与接口3,4和6的返回数据格式相同
 
 
 <br>
-### 3.精选
+<a name="api-2" />
+### 2.精选
 请求地址：{server_host}/index
 
 |Request|Method : GET||
@@ -245,7 +262,8 @@ json文件，格式如下
 ```
 
 <br>
-### 4.游戏列表
+<a name="api-3" />
+### 3.游戏列表
 请求地址：{server_host}/games
 
 |Request|Method : GET||
@@ -275,7 +293,8 @@ json文件，格式如下
 ```
 
 <br>
-### 5.游戏详情
+<a name="api-4" />
+### 4.游戏详情
 请求地址：{server_host}/games/{id}
 
 |Request|Method : GET||
@@ -342,7 +361,8 @@ json文件，格式如下
 ```
 
 <br>
-### 6.分类
+<a name="api-5" />
+### 5.分类
 请求地址：{server_host}/cats
 
 |Request|Method : GET||
@@ -395,7 +415,8 @@ json文件，格式如下
 ```
 
 <br>
-### 7.热门分类游戏列表页
+<a name="api-6" />
+### 6.热门分类游戏列表页
 请求地址：{server_host}/hotcats/{id}
 
 |Request|Method : GET||
@@ -424,7 +445,8 @@ json文件，格式如下
 ```
 
 <br>
-### 8.分类的游戏列表
+<a name="api-7" />
+### 7.分类的游戏列表
 请求地址：{server_host}/cats/{id}
 
 |Request|Method : GET||
@@ -455,7 +477,8 @@ json文件，格式如下
 ```
 
 <br>
-### 9.专题列表页
+<a name="api-8" />
+### 8.专题列表页
 请求地址：{server_host}/topics
 
 |Request|Method : GET||
@@ -499,7 +522,8 @@ json文件，格式如下
 ```
 
 <br>
-### 10.专题详情页
+<a name="api-9" />
+### 9.专题详情页
 请求地址：{server_host}/topics/{id}
 
 |Request|Method : GET||
@@ -538,7 +562,8 @@ json文件，格式如下
 ```
 
 <br>
-### 11.礼包页
+<a name="api-10" />
+### 10.礼包页
 请求地址：{server_host}/gifts
 
 |Request|Method : GET||
@@ -694,7 +719,8 @@ json文件，格式如下
 
 
 <br>
-### 12.我的礼包
+<a name="api-11" />
+### 11.我的礼包
 请求地址：{server_host}/user/{user_id}/gifts
 
 |Request|Method : GET||
@@ -731,7 +757,8 @@ json文件，格式如下
 ```
 
 <br>
-### 13.游戏的礼包列表
+<a name="api-12" />
+### 12.游戏的礼包列表
 请求地址：{server_host}/games/{game_id}/gifts
 
 |Request|Method : GET||
@@ -769,7 +796,8 @@ json文件，格式如下
 ```
 
 <br>
-### 14.礼包详情
+<a name="api-13" />
+### 13.礼包详情
 请求地址：{server_host}/gifts/{id}
 
 |Request|Method : GET||
@@ -798,7 +826,8 @@ json文件，格式如下
 ```
 
 <br>
-### 15.礼包领取
+<a name="api-14" />
+### 14.礼包领取
 请求地址：{server_host}/gifts/{id}/code
 
 |Request|Method : POST||
@@ -816,7 +845,8 @@ json文件，格式如下
 ```
 
 <br>
-### 16.活动
+<a name="api-15" />
+### 15.活动
 请求地址：{server_host}/activity
 
 |Request|Method : GET||
@@ -859,7 +889,8 @@ json文件，格式如下
 ```
 
 <br>
-### 17.搜索
+<a name="api-16" />
+### 16.搜索
 请求地址：{server_host}/search
 
 |Request|Method : GET||
@@ -932,7 +963,8 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-### 18.自动匹配
+<a name="api-17" />
+### 17.自动匹配
 请求地址：{server_host}/automatch
 
 |Request|Method : GET||
@@ -961,7 +993,8 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-### 19.游戏评论
+<a name="api-18" />
+### 18.游戏评论
 请求地址：{server_host}/games/{game_id}/comments
 
 |Request|Method : GET||
@@ -1000,7 +1033,8 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-### 20.提交游戏评论
+<a name="api-19" />
+### 19.提交游戏评论
 请求地址：{server_host}/games/{game_id}/comments
 
 |Request|Method : POST||
