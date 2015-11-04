@@ -895,7 +895,7 @@ json文件，格式如下
 
 <a name="api-16" />
 ### 16.首发
-请求地址：{server_host}/games/first
+请求地址：{server_host}/games/debut
 
 |Request|Method : GET||
 |---|---|---|
@@ -1000,7 +1000,7 @@ q不为空时但搜索结果为空，返回数据格式
 <br>
 <a name="api-18" />
 ### 18.自动匹配
-请求地址：{server_host}/automatch
+请求地址：{server_host}/autocomplete
 
 |Request|Method : GET||
 |---|---|---|
