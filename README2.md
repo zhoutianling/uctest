@@ -602,7 +602,7 @@ json文件，格式如下
         ]
     },
     {
-        "type":"gifts_hot",
+        "type":"hot_gifts",
         "data":[
             {
                 "id":1,
@@ -622,7 +622,7 @@ json文件，格式如下
         ]
     },
     {
-        "type":"gifts_new",
+        "type":"new_gifts",
         "data":[
             {
                 "id":1,
@@ -701,7 +701,7 @@ json文件，格式如下
 当传入搜索关键字q但搜索匹配结果为空时，返回数据格式为
 ```
 {
-    "type":"gifts_hot",
+    "type":"hot_gifts",
     "data":[
         {
             "id":1,
@@ -726,7 +726,7 @@ json文件，格式如下
 <br>
 <a name="api-11" />
 ### 11.我的礼包
-请求地址：{server_host}/user/{user_id}/gifts
+请求地址：{server_host}/mygifts
 
 |Request|Method : GET||
 |---|---|---|
@@ -833,7 +833,7 @@ json文件，格式如下
 <br>
 <a name="api-14" />
 ### 14.礼包领取
-请求地址：{server_host}/gifts/{id}/code
+请求地址：{server_host}/gifts/{id}/codes/whatever
 
 |Request|Method : POST||
 |---|---|---|
