@@ -3,7 +3,7 @@
 
 * [规格说明](#规格说明)
 * [http请求头部参数](#http请求头部参数)
-* [请求&返回body实体](#请求/返回body实体)
+* [请求&返回body实体](#请求&返回body实体)
 * [http返回header头部参数](#http返回header头部参数)
 * [返回状态码](#返回状态码)
 * [错误信息error](#错误信息error)
@@ -48,7 +48,7 @@
 |X-Update-Time|api最后更新时间|
 
 <br>
-#### **请求/返回body实体**
+#### **请求&返回body实体**
 值为MCrypt(base64_encode(msgpack(data)))
 > key为本地秘钥，data为post提交数据或返回数据（json格式）
 
@@ -263,13 +263,13 @@ json文件，格式如下
 
 <br>
 <a name="api-3" />
-### 3.游戏列表
+### 3.排行
 请求地址：{server_host}/games
 
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|type|string|类型 单机/网游/最热/最新/首发（offline/online/hot/new/first）|
+|rank|string|排行类型 单机/网游/最热/最新（offline/online/hot/new）|
 |page|int|页数|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
@@ -417,11 +417,12 @@ json文件，格式如下
 <br>
 <a name="api-6" />
 ### 6.热门分类游戏列表页
-请求地址：{server_host}/hotcats/{id}
+请求地址：{server_host}/games/hotcats
 
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
+|hotcats|int|热门分类id|
 |page|int|页数|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
@@ -888,9 +889,39 @@ json文件，格式如下
 ]
 ```
 
-<br>
 <a name="api-16" />
-### 16.搜索
+### 16.首发
+请求地址：{server_host}/games/first
+
+|Request|Method : GET||
+|---|---|---|
+|参数名|类型|说明|
+|/|/|/|
+|page|int|页数|
+|**Respone**|**DataType : json**||
+|参数名|类型|说明|
+返回数据格式
+```
+[
+    {
+        "type":"game",
+        "data":"{game_base_info}"
+    },
+    {
+        "type":"game",
+        "data":"{game_base_info}"
+    },
+    {
+        "type":"game",
+        "data":"{game_base_info}"
+    },
+    ...
+]
+```
+
+<br>
+<a name="api-17" />
+### 17.搜索
 请求地址：{server_host}/search
 
 |Request|Method : GET||
@@ -963,8 +994,8 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-<a name="api-17" />
-### 17.自动匹配
+<a name="api-18" />
+### 18.自动匹配
 请求地址：{server_host}/automatch
 
 |Request|Method : GET||
@@ -993,8 +1024,8 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-<a name="api-18" />
-### 18.游戏评论
+<a name="api-19" />
+### 19.游戏评论
 请求地址：{server_host}/games/{game_id}/comments
 
 |Request|Method : GET||
@@ -1033,8 +1064,8 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-<a name="api-19" />
-### 19.提交游戏评论
+<a name="api-20" />
+### 20.提交游戏评论
 请求地址：{server_host}/games/{game_id}/comments
 
 |Request|Method : POST||
