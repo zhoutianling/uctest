@@ -1,6 +1,12 @@
 # **天天游戏中心API文档**
 ---
 
+* [规格说明](#规格说明)
+* [http请求头部参数](#http请求头部参数)
+* [请求/返回body实体](#请求/返回body实体)
+* [http返回header头部参数](#http返回header头部参数)
+* [返回状态码](#返回状态码)
+
 #### **规格说明**
 |/|说明|
 |-----|-------|
@@ -87,7 +93,8 @@ json文件，格式如下
 {
     "server_host":"http://www.example.com",     // 服务器host地址
     "ucenter_host":"http://www.example.com",    // 用户中心host地址
-    "bbs_host":"http://www.example.com"         // 社区host地址
+    "bbs_host":"http://www.example.com",        // 社区host地址
+    "dcenter_host":"http://www.example.com"     // 数据中心host地址
 }
 ```
 
@@ -114,7 +121,7 @@ json文件，格式如下
 
 <br>
 ## **接口**
-1.第一次启动应用弹出精选必玩
+### 1.第一次启动应用弹出精选必玩
 
 请求地址：{server_host}/choice
 
@@ -133,7 +140,7 @@ json文件，格式如下
 ]
 ```
 
-2.启动app时预加载主页及其他信息
+### 2.启动app时预加载主页及其他信息
 
 请求地址：{server_host}/start
 
@@ -156,7 +163,7 @@ json文件，格式如下
 
 
 <br>
-3.精选
+### 3.精选
 请求地址：{server_host}/index
 
 |Request|Method : GET||
@@ -238,7 +245,7 @@ json文件，格式如下
 ```
 
 <br>
-4.游戏列表
+### 4.游戏列表
 请求地址：{server_host}/games
 
 |Request|Method : GET||
@@ -268,8 +275,8 @@ json文件，格式如下
 ```
 
 <br>
-5.游戏详情
-请求地址：{server_host}/game/{id}
+### 5.游戏详情
+请求地址：{server_host}/games/{id}
 
 |Request|Method : GET||
 |---|---|---|
@@ -335,7 +342,7 @@ json文件，格式如下
 ```
 
 <br>
-6.分类
+### 6.分类
 请求地址：{server_host}/cats
 
 |Request|Method : GET||
@@ -388,7 +395,7 @@ json文件，格式如下
 ```
 
 <br>
-7.热门分类游戏列表页
+### 7.热门分类游戏列表页
 请求地址：{server_host}/hotcats/{id}
 
 |Request|Method : GET||
@@ -417,7 +424,7 @@ json文件，格式如下
 ```
 
 <br>
-8.分类的游戏列表
+### 8.分类的游戏列表
 请求地址：{server_host}/cats/{id}
 
 |Request|Method : GET||
@@ -448,7 +455,7 @@ json文件，格式如下
 ```
 
 <br>
-9.专题列表页
+### 9.专题列表页
 请求地址：{server_host}/topics
 
 |Request|Method : GET||
@@ -492,7 +499,7 @@ json文件，格式如下
 ```
 
 <br>
-10.专题详情页
+### 10.专题详情页
 请求地址：{server_host}/topics/{id}
 
 |Request|Method : GET||
@@ -531,7 +538,7 @@ json文件，格式如下
 ```
 
 <br>
-11.礼包页
+### 11.礼包页
 请求地址：{server_host}/gifts
 
 |Request|Method : GET||
@@ -687,7 +694,7 @@ json文件，格式如下
 
 
 <br>
-12.我的礼包
+### 12.我的礼包
 请求地址：{server_host}/user/{user_id}/gifts
 
 |Request|Method : GET||
@@ -724,7 +731,7 @@ json文件，格式如下
 ```
 
 <br>
-13.游戏的礼包列表
+### 13.游戏的礼包列表
 请求地址：{server_host}/games/{game_id}/gifts
 
 |Request|Method : GET||
@@ -762,7 +769,7 @@ json文件，格式如下
 ```
 
 <br>
-14.礼包详情
+### 14.礼包详情
 请求地址：{server_host}/gifts/{id}
 
 |Request|Method : GET||
@@ -791,7 +798,7 @@ json文件，格式如下
 ```
 
 <br>
-15.礼包领取
+### 15.礼包领取
 请求地址：{server_host}/gifts/{id}/code
 
 |Request|Method : POST||
@@ -809,7 +816,7 @@ json文件，格式如下
 ```
 
 <br>
-16.活动
+### 16.活动
 请求地址：{server_host}/activity
 
 |Request|Method : GET||
@@ -852,7 +859,7 @@ json文件，格式如下
 ```
 
 <br>
-17.搜索
+### 17.搜索
 请求地址：{server_host}/search
 
 |Request|Method : GET||
@@ -925,8 +932,8 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-18.自动匹配
-请求地址：{server_host}/query
+### 18.自动匹配
+请求地址：{server_host}/automatch
 
 |Request|Method : GET||
 |---|---|---|
@@ -954,7 +961,7 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-19.游戏评论
+### 19.游戏评论
 请求地址：{server_host}/games/{game_id}/comments
 
 |Request|Method : GET||
@@ -993,7 +1000,7 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-20.提交游戏评论
+### 20.提交游戏评论
 请求地址：{server_host}/games/{game_id}/comments
 
 |Request|Method : POST||
@@ -1014,6 +1021,9 @@ q不为空时但搜索结果为空，返回数据格式
 }
 ```
 > 提交失败会有error,message信息
+
+
+
 
 <br/>
 <br/>
