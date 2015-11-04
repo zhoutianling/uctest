@@ -1118,8 +1118,8 @@ q不为空时但搜索结果为空，返回数据格式
 
 <br>
 <a name="api-23" />
-### 23.游戏管理，检测所有游戏版本
-请求地址：{gcenter_host}/games?status=installed
+### 23.游戏管理
+请求地址：{gcenter_host}/game/manage
 
 |Request|Method : GET||
 |---|---|---|
