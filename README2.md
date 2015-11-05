@@ -1,42 +1,6 @@
 # **天天游戏中心API文档**
 ---
 
-* [规格说明](#规格说明)
-* [http请求头部参数](#http请求头部参数)
-* [请求&返回body实体](#body)
-* [http返回header头部参数](#http返回header头部参数)
-* [返回状态码](#返回状态码)
-* [错误信息error](#错误信息error)
-* [修订历史](#修订历史)
-* [host配置文件地址](#host配置文件地址)
-* [game_base_info](#game_base_info)
-* [接口](#接口)
-  * [1.启动app时预加载主页及其他信息](#api-1)
-  * [2.精选](#api-2)
-  * [3.游戏列表](#api-3)
-  * [4.游戏详情](#api-4)
-  * [5.分类](#api-5)
-  * [6.热门分类游戏列表页](#api-6)
-  * [7.分类的游戏列表](#api-7)
-  * [8.专题列表页](#api-8)
-  * [9.专题详情页](#api-9)
-  * [10.礼包页](#api-10)
-  * [11.我的礼包](#api-11)
-  * [12.游戏的礼包列表](#api-12)
-  * [13.礼包详情](#api-13)
-  * [14.礼包领取](#api-14)
-  * [15.活动](#api-15)
-  * [16.首发](#api-16)
-  * [17.搜索](#api-17)
-  * [18.自动匹配](#api-18)
-  * [19.游戏评论](#api-19)
-  * [20.提交游戏评论](#api-20)
-  * [21.数据中心](#api-21)
-  * [22.检查更新](#api-22)
-  * [23.游戏管理，检测所有游戏版本](#api-23)
-  * [24.反馈信息展示](#api-24)
-  * [25.提交反馈](#api-25)
-
 #### **规格说明**
 |/|说明|
 |-----|-------|
@@ -162,7 +126,6 @@ json文件，格式如下
 <br>
 ## **接口**
 
-<a name="api-1" />
 ### 1.启动app时预加载主页及其他信息
 
 请求地址：{gcenter_host}/start
@@ -195,7 +158,6 @@ json文件，格式如下
 
 
 <br>
-<a name="api-2" />
 ### 2.精选
 请求地址：{gcenter_host}/index
 
@@ -278,7 +240,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-3" />
 ### 3.排行
 请求地址：{gcenter_host}/ranking
 
@@ -309,7 +270,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-4" />
 ### 4.游戏详情
 请求地址：{gcenter_host}/games/{id}
 
@@ -371,7 +331,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-5" />
 ### 5.分类
 请求地址：{gcenter_host}/cats
 
@@ -425,7 +384,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-6" />
 ### 6.热门分类游戏列表页
 请求地址：{gcenter_host}/hotcats
 
@@ -456,7 +414,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-7" />
 ### 7.分类的游戏列表
 请求地址：{gcenter_host}/cats/{id}
 
@@ -488,7 +445,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-8" />
 ### 8.专题列表页
 请求地址：{gcenter_host}/topics
 
@@ -533,7 +489,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-9" />
 ### 9.专题详情页
 请求地址：{gcenter_host}/topics/{id}
 
@@ -573,7 +528,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-10" />
 ### 10.礼包页
 请求地址：{gcenter_host}/gifts
 
@@ -730,7 +684,6 @@ json文件，格式如下
 
 
 <br>
-<a name="api-11" />
 ### 11.我的礼包
 请求地址：{gcenter_host}/gifts?owner={user_id}
 
@@ -768,7 +721,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-12" />
 ### 12.游戏的礼包列表
 请求地址：{gcenter_host}/games/{game_id}/gifts
 
@@ -807,7 +759,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-13" />
 ### 13.礼包详情
 请求地址：{gcenter_host}/gifts/{id}
 
@@ -837,7 +788,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-14" />
 ### 14.礼包领取
 请求地址：{gcenter_host}/gifts/{id}/code
 
@@ -856,7 +806,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-15" />
 ### 15.活动
 请求地址：{gcenter_host}/activities
 
@@ -899,7 +848,7 @@ json文件，格式如下
 ]
 ```
 
-<a name="api-16" />
+<br>
 ### 16.首发
 请求地址：{gcenter_host}/debuts
 
@@ -930,7 +879,6 @@ json文件，格式如下
 ```
 
 <br>
-<a name="api-17" />
 ### 17.搜索
 请求地址：{gcenter_host}/search
 
@@ -1004,7 +952,6 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-<a name="api-18" />
 ### 18.自动匹配
 请求地址：{gcenter_host}/search/autocomplete
 
@@ -1034,7 +981,6 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-<a name="api-19" />
 ### 19.游戏评论
 请求地址：{gcenter_host}/games/{game_id}/comments
 
@@ -1063,7 +1009,6 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-<a name="api-20" />
 ### 20.提交游戏评论
 请求地址：{gcenter_host}/games/{game_id}/comments
 
@@ -1077,7 +1022,6 @@ q不为空时但搜索结果为空，返回数据格式
 > 返回message信息，提交失败会有error信息
 
 <br>
-<a name="api-21" />
 ### 21.数据中心
 请求地址：{dcenter_host}
 
@@ -1090,7 +1034,6 @@ q不为空时但搜索结果为空，返回数据格式
 |/|/|/|
 
 <br>
-<a name="api-22" />
 ### 22.检查更新
 请求地址：{gcenter_host}/clients/releases/latest
 
@@ -1116,7 +1059,6 @@ q不为空时但搜索结果为空，返回数据格式
 ```
 
 <br>
-<a name="api-23" />
 ### 23.游戏管理
 请求地址：{gcenter_host}/game/manage
 
@@ -1145,7 +1087,6 @@ with参数格式为
 ```
 
 <br>
-<a name="api-24" />
 ### 24.反馈信息展示
 请求地址：{gcenter_host}/feedbacks
 
@@ -1180,7 +1121,6 @@ with参数格式为
 ```
 
 <br>
-<a name="api-25" />
 ### 25.提交反馈
 请求地址：{gcenter_host}/feedbacks
 
