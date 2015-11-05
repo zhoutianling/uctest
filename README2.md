@@ -840,9 +840,9 @@ json文件，格式如下
 <br>
 <a name="api-14" />
 ### 14.礼包领取
-请求地址：{gcenter_host}/gifts/{id}/codes?by=order
+请求地址：{gcenter_host}/gifts/{id}/code
 
-|Request|Method : POST||
+|Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
 |/|/|/|
@@ -1124,7 +1124,7 @@ q不为空时但搜索结果为空，返回数据格式
 |Request|Method : GET||
 |---|---|---|
 |参数名|类型|说明|
-|with|string（json格式）|要匹配查询的游戏信息|
+|data|string（json格式）|要匹配查询的游戏信息|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
 with参数格式为
