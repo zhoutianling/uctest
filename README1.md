@@ -1,4 +1,4 @@
-# **苹果商店API文档**
+# **苹果商店API文档**  
 ---
 
 #### **规格说明**
@@ -66,9 +66,10 @@
     "message": "验证错误",
     "errors": [
         {
-        "field": "title",
-        "code": "missing_field"
+            "field": "title",
+            "code": "missing_field"
         }
+        ...
     ]
 }
 ```
@@ -81,10 +82,10 @@
 
 <br>
 #### **host配置文件地址**
-http://cdn.example.com/ltbl/host
+http://192.168.5.132/hosts.json
 ```
 {
-    "server_host":"http://www.example.com"
+    "server_host":"http://192.168.5.132"
 }
 ```
 
@@ -97,16 +98,15 @@ http://cdn.example.com/ltbl/host
 |file_size_bytes|int|应用大小单位字节|
 |name|string|应用名称|
 |alias|string|别名|
-|package|string|应用包名|
+|package_name|string|应用包名|
 |version|string|应用版本|
-|version_code|int|应用版本号|
 |author|string|作者|
 |price|float|应用价格|
 |icon_urls|string|icon地址|
 |view_url|string|appstore应用地址|
 |reviews|string|一句话点评|
 |average_user_rating|int|应用评分|
-|average_user_rating|int|应用评分|
+|user_rating_count|int|评分数量|
 |type|string|apps=>应用，games=>游戏|
 |release_date|date|应用发布日期|
 
@@ -293,34 +293,9 @@ $data数据格式
 ]
 ```
 
-<br>
-7.榜单列表
-
-请求地址：{server_host}/tops
-
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|page|int|页数|
-|type|string|类型 付费/免费/畅销（pay/free/hot）|
-|**Respone**|**DataType : json**||
-|返回数据格式|||
-```
-[
-    {
-        "type":"app",
-        "data":"{app_base_info}"
-    },
-    {
-        "type":"app",
-        "data":"{app_base_info}"
-    },
-    ...
-]
-```
 
 <br>
-8.软件/游戏分类
+7.软件/游戏分类
 
 请求地址：{server_host}/cats
 
@@ -353,7 +328,7 @@ $data数据格式
 ```
 
 <br>
-9.应用详情页
+8.应用详情页
 
 请求地址：{server_host}/apps/{id}
 
@@ -404,9 +379,9 @@ $data数据格式
 ```
 
 <br>
-10.搜索框自动匹配
+9.搜索框自动匹配
 
-请求地址：{server_host}/autoMatch
+请求地址：{server_host}/automatch
 
 |Request|Method : GET||
 |---|---|---|
@@ -424,7 +399,7 @@ $data数据格式
 ```
 
 <br>
-11.应用搜索结果页
+10.应用搜索结果页
 
 请求地址：{server_host}/search
 
