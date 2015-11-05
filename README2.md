@@ -507,7 +507,7 @@ json文件，格式如下
         "data":{
             "id":1,
             "title":"时空猎人",
-            "image":"/xxx/xx.png",
+            "image_url":"/xxx/xx.png",
             "summary":"好游戏"
         }
     },
@@ -516,7 +516,7 @@ json文件，格式如下
         "data":{
             "id":1,
             "title":"时空猎人",
-            "image":"/xxx/xx.png",
+            "image_url":"/xxx/xx.png",
             "summary":"好游戏"
         }
     },
@@ -525,7 +525,7 @@ json文件，格式如下
         "data":{
             "id":1,
             "title":"时空猎人",
-            "image":"/xxx/xx.png",
+            "image_url":"/xxx/xx.png",
             "summary":"好游戏"
         }
     },
@@ -552,7 +552,7 @@ json文件，格式如下
         "data":{
             "id":1,
             "title":"时空猎人",
-            "image":"/xxx/xx.png",
+            "image_url":"/xxx/xx.png",
             "summary":"好游戏",
             "updated_at":""
         }
@@ -614,14 +614,14 @@ json文件，格式如下
             {
                 "id":1,
                 "title":"天天飞车",
-                "icon":"/xxx/xx.png",
+                "icon_url":"http://xxx.com/xxx/xx.png",
                 "total":5000,
                 "remain":2000
             },
             {
                 "id":1,
                 "title":"天天飞车",
-                "icon":"/xxx/xx.png",
+                "icon_url":"http://xxx.com/xxx/xx.png",
                 "total":5000,
                 "remain":2000
             },
@@ -634,7 +634,7 @@ json文件，格式如下
             {
                 "id":1,
                 "title":"天天飞车",
-                "icon":"/xxx/xx.png",
+                "icon_url":"/xxx/xx.png",
                 "gift_id":22,
                 "gift_title":"黄金礼包",
                 "total":5000,
@@ -643,7 +643,7 @@ json文件，格式如下
             {
                 "id":1,
                 "title":"天天飞车",
-                "icon":"/xxx/xx.png",
+                "icon_url":"/xxx/xx.png",
                 "gift_id":22,
                 "gift_title":"黄金礼包",
                 "total":5000,
@@ -663,14 +663,14 @@ json文件，格式如下
             {
                 "id":"1",
                 "title":"爸爸去哪",
-                "icon":"/xxx/xx.png",
+                "icon_url":"/xxx/xx.png",
                 "total":"5000",
                 "remain":"4999"
             },
             {
                 "id":"2",
                 "title":"爸爸去哪2",
-                "icon":"/xxx/xx.png",
+                "icon_url":"/xxx/xx.png",
                 "total":"5000",
                 "remain":"4999"
             },
@@ -713,14 +713,14 @@ json文件，格式如下
         {
             "id":1,
             "title":"天天飞车",
-            "icon":"/xxx/xx.png",
+            "icon_url":"/xxx/xx.png",
             "total":5000,
             "remain":2000
         },
         {
             "id":1,
             "title":"天天飞车",
-            "icon":"/xxx/xx.png",
+            "icon_url":"/xxx/xx.png",
             "total":5000,
             "remain":2000
         },
@@ -747,7 +747,7 @@ json文件，格式如下
     {
         "type":"my_gifts",
         "data":{
-            "icon":"/xxx/xx.png",
+            "icon_url":"/xxx/xx.png",
             "gift_title":"",
             "code":"HSDKJFSNCMXZNJ232"
             "stocked_at":"2015-09-25 18:30:16",
@@ -757,7 +757,7 @@ json文件，格式如下
     {
         "type":"my_gifts",
         "data":{
-            "icon":"/xxx/xx.png",
+            "icon_url":"/xxx/xx.png",
             "gift_title":"",
             "code":"HSDKJFSNCMXZN12J232"
             "stocked_at":"2015-09-25 18:30:16",
@@ -875,10 +875,10 @@ json文件，格式如下
         "data":{
             "id":1,
             "title":"国庆红包福利",
-            "banner":"/xxx/xx.png",
-            "s_banner":"/xxx/xx.png",
-            "link":"xxxx",
-            "intro":"十一活动",
+            "image_url":"/xxx/xx.png",
+            "big_image_url":"/xxx/xx.png",
+            "url":"xxxx",
+            "summary":"十一活动",
             "stocked_at":"2015-09-25 18:30:16",
             "unstocked_at":"2016-09-25 23:59:59"
         }
@@ -888,10 +888,10 @@ json文件，格式如下
         "data":{
             "id":2,
             "title":"国庆红包福利222",
-            "banner":"/xxx/xx.png",
-            "s_banner":"/xxx/xx.png",
-            "link":"xxxx",
-            "intro":"十一活动222",
+            "image_url":"/xxx/xx.png",
+            "big_image_url":"/xxx/xx.png",
+            "url":"xxxx",
+            "summary":"十一活动222",
             "stocked_at":"2015-09-25 18:30:16",
             "unstocked_at":"2016-09-25 23:59:59"
         }
@@ -996,9 +996,9 @@ q不为空时但搜索结果为空，返回数据格式
 {
     "type":"search_null",
     "data":[
-        {"id":"1","title":"爸爸去哪","icon":"/xxx/xx.png"},
-        {"id":"2","title":"爸爸去哪2","icon":"/xxx/xx.png"},
-        {"id":"3","title":"爸爸去哪3","icon":"/xxx/xx.png"},
+        {"id":"1","title":"爸爸去哪","icon_url":"/xxx/xx.png"},
+        {"id":"2","title":"爸爸去哪2","icon_url":"/xxx/xx.png"},
+        {"id":"3","title":"爸爸去哪3","icon_url":"/xxx/xx.png"},
         ...
     ]
 }
@@ -1105,14 +1105,14 @@ q不为空时但搜索结果为空，返回数据格式
 返回数据格式
 ```
 {
-    "version":"1.0",
+    "version_name":"1.0",
     "version_code":"1000",
-    "size":"1024",
+    "package_size":"1024",
     "download_link":"",
     "created_at":"",
     "download_link":"",
-    "feature":"",
-    "md5":""
+    "changelog":"",
+    "package_md5":""
 }
 ```
 
@@ -1160,7 +1160,7 @@ with参数格式为
 ```
 [
     {
-        "type":"feedback-text",
+        "type":"text_feedback",
         "data":{
             "content":"呵呵哒",
             "identifyUser":"user",  // 反馈人标识user:用户，system:系统，admin:管理员
@@ -1168,7 +1168,7 @@ with参数格式为
         }
     },
     {
-        "type":"feedback-image",
+        "type":"image_feedback",
         "data":{
             "identifyUser":"user",
             "image_url":"/xxx/xx.png",
