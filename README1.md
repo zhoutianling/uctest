@@ -1,20 +1,7 @@
 # **苹果商店API文档**  
 ---
 
-* [<strong>苹果商店API文档</strong>](#苹果商店api文档)
-    * [<strong>规格说明</strong>](#规格说明)
-    * [<strong>http请求头部参数</strong>](#http请求头部参数)
-    * [<strong>请求/返回body实体</strong>](#请求返回body实体)
-    * [<strong>http返回header头部参数</strong>](#http返回header头部参数)
-    * [<strong>返回状态码</strong>](#返回状态码)
-    * [<strong>错误信息error</strong>](#错误信息error)
-    * [<strong>修订历史</strong>](#修订历史)
-    * [<strong>host配置文件地址</strong>](#host配置文件地址)
-    * [<strong>app_base_info</strong>](#app_base_info)
-* [<strong>接口</strong>](#接口)
-
-
-#### **规格说明**
+### **规格说明**
 |/|说明|
 |-----|-------|
 |版本|v1.0|
@@ -24,26 +11,26 @@
 |返回数据|{ data:{}, message:{}, error:{}}只有data时，则直接返回data里面的数据|
 
 <br>
-#### **http请求头部参数**
+### **http请求头部参数**
 |参数|说明|
 |----|---------------|
 |X-Client-Info|公共参数，包括如下：<br>uuid：设备唯一标识<br>imei：机器码<br>version：客户端版本<br>version_code：客户端版本代号<br>os_version：操作系统版本<br>device：设备型号<br>metrics：设备分辨率480X800<br>channel：渠道别名<br>access_token：用户登录后服务器返回的用户token，作每次请求的验证串|
 |X-Update-Time|api最后更新时间|
 
 <br>
-#### **请求/返回body实体**
+### **请求/返回body实体**
 值为MCrypt(base64_encode(msgpack(data)))
 > key为本地秘钥，data为post提交数据或返回数据（json格式）
 
 <br>
-#### **http返回header头部参数**
+### **http返回header头部参数**
 |参数|类型|说明|
 |---|---|---|
 |X-Links|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|上一页，最后一页链接（列表页数据接口会有该参数返回）|
 |X-Update-Time|2015-09-09 10:10:00|api最后更新时间|
 |X-Retry-After|3600(s)|服务器恢复时间（503错误时会返回该参数）|
 
-#### **返回状态码**
+### **返回状态码**
 |status值|说明|
 |---|---|
 |200|get请求成功|
@@ -67,7 +54,7 @@
 |504|网关超时|
 
 <br>
-#### **错误信息error**
+### **错误信息error**
 |错误名称|描述|
 |---|---|
 |missing|资源不存在|
@@ -88,13 +75,13 @@
 ```
 
 <br>
-#### **修订历史**
+### **修订历史**
 |版本|修改说明|修改人|
 |---|---|---|
 ||||
 
 <br>
-#### **host配置文件地址**
+### **host配置文件地址**
 http://192.168.5.132/hosts.json
 ```
 {
@@ -103,7 +90,7 @@ http://192.168.5.132/hosts.json
 ```
 
 <br>
-#### **app_base_info**
+### **app_base_info**
 |参数名|类型|说明|
 |---|---|---|
 |id|int|应用ID|
@@ -125,7 +112,8 @@ http://192.168.5.132/hosts.json
 
 <br>
 ## **接口**
-1.启动app时预加载主页及其他信息
+
+### 1.启动app时预加载主页及其他信息
 
 请求地址：{server_host}/start
 
@@ -197,7 +185,7 @@ $data数据格式
 > 注：接口2返回数据跟data结构相同 
 
 <br>
-2.首页精选
+### 2.首页精选
 
 请求地址：{server_host}/index
 
@@ -209,7 +197,7 @@ $data数据格式
 |接口2返回数据跟data结构相同|
 
 <br>
-3.首页专题列表
+### 3.首页专题列表
 
 请求地址：{server_host}/topics
 
@@ -242,7 +230,7 @@ $data数据格式
 ```
 
 <br>
-4.专题详情页
+### 4.专题详情页
 
 请求地址：{server_host}/topics/{id}
 
@@ -255,7 +243,7 @@ $data数据格式
 |待定|||
 
 <br>
-5.应用列表
+### 5.应用列表
 
 请求地址：{server_host}/apps
 
@@ -281,7 +269,7 @@ $data数据格式
 ```
 
 <br>
-6.游戏列表
+### 6.游戏列表
 
 请求地址：{server_host}/games
 
@@ -308,7 +296,7 @@ $data数据格式
 
 
 <br>
-7.软件/游戏分类
+### 7.软件/游戏分类
 
 请求地址：{server_host}/cats
 
@@ -341,7 +329,7 @@ $data数据格式
 ```
 
 <br>
-8.应用详情页
+### 8.应用详情页
 
 请求地址：{server_host}/apps/{id}
 
@@ -392,7 +380,7 @@ $data数据格式
 ```
 
 <br>
-9.搜索框自动匹配
+### 9.搜索框自动匹配
 
 请求地址：{server_host}/automatch
 
@@ -412,7 +400,7 @@ $data数据格式
 ```
 
 <br>
-10.应用搜索结果页
+### 10.应用搜索结果页
 
 请求地址：{server_host}/search
 
