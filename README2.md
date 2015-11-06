@@ -156,6 +156,7 @@ json文件，格式如下
 |download_count|string|下载数|
 |corner_url|string|角标链接|
 |group_id|int|社区小组id|
+|mark|string|游戏标识（礼包/社区/攻略...）|
 
 
 
