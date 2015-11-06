@@ -14,7 +14,7 @@
   * [1.启动app时预加载主页及其他信息](#1启动app时预加载主页及其他信息)
   * [2.精选](#2精选)
   * [3.排行](#3排行)
-  * [4.游戏详情](#4游戏详情)
+  * [4.游戏详情（id或包名搜索）](#4游戏详情（id或包名搜索）)
   * [5.分类](#5分类)
   * [6.热门分类游戏列表页](#6热门分类游戏列表页)
   * [7.分类的游戏列表](#7分类的游戏列表)
@@ -58,7 +58,7 @@
 #### **http返回header头部参数**
 |参数|类型|说明|
 |---|---|---|
-|X-Links|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|上一页，最后一页链接（列表页数据接口会有该参数返回）|
+|X-Links|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|下一页，最后一页链接（列表页数据接口会有该参数返回）|
 |X-Update-Time|2015-09-09 10:10:00|api最后更新时间|
 |X-Retry-After|3600(s)|服务器恢复时间（503错误时会返回该参数）|
 
@@ -143,7 +143,6 @@ json文件，格式如下
 |---|---|---|
 |id|int|应用ID|
 |name|string|应用名称|
-|alias|string|别名|
 |cat_name|string|分类|
 |package_name|string|游戏包名|
 |package_md5|string|安装包MD5|
@@ -178,7 +177,7 @@ json文件，格式如下
 {
     "necessary":[$data],   // 精选必玩数据（第一次启动时有该数据）
     "index":[$data],
-    "tops":[$data],
+    "ranking":[$data],
     "cats":[$data]
 }
 ```
@@ -191,7 +190,7 @@ json文件，格式如下
     ...
 ]
 ```
-> 精选页/排行页/分类页$data数据格式分别与接口3,4和6的返回数据格式相同
+> 精选页/排行页/分类页$data数据格式分别与接口2,3和5的返回数据格式相同
 
 
 <br>
@@ -211,20 +210,20 @@ json文件，格式如下
         "type":"carousel",
         "data":[
             {
-                "type":"game",
+                "click_type":"game", // 游戏详情/专题/话题/礼包/h5(game/topic/discussion/gift/h5)
                 "data":{
                     "image_url":"",
-                    "id":1
+                    "id":1,
+                    "url":""    // h5地址（可为空）
                 }
-                    
             },
             {
-                "type":"topic",
+                "click_type":"topic",
                 "data":{
                     "image_url":"",
-                    "id":2
+                    "id":2,
+                    "url":""
                 }
-                    
             },
             ...
         ]
@@ -232,10 +231,30 @@ json文件，格式如下
     {
         "type":"entry",
         "data":[
-            {"title":"专题","type":"topic","url":""},
-            {"title":"社区","type":"forum","url":""},
-            {"title":"攻略","type":"strategy","url":""},
-            {"title":"活动","type":"h5","url":""},
+            {
+                "page_name":"YM-ZT", // 页面别名
+                "title":"专题",
+                "id":"",            // ID 适用于 游戏ID，专题ID，分类ID,可为空
+                "color":"D94600"    // 颜色，RGB值
+            },
+            {
+                "page_name":"YM-SWD",
+                "title":"社区",
+                "id":"",
+                "color":"006000"
+            },
+            {
+                "page_name":"YM-GB",
+                "title":"攻略",
+                "id":"",
+                "color":"f75c54"
+            },
+            {
+                "page_name":"活动列表页",
+                "title":"活动",
+                "id":"",
+                "color":"930093"
+            }
         ]
     },
     {
@@ -254,10 +273,14 @@ json文件，格式如下
     {
         "type":"banner",
         "data":{
-            "type":"topic",   // 其他类型game/gift/h5
-            "image_url":"",
-            "id":12,
-            "url":""   // 跳转h5页面时的地址
+            "click_type":"game", // 游戏详情/专题/话题/礼包/h5(game/topic/discussion/gift/h5)
+            "data":{
+                "mark":"最新活动", // 左上角标示文字
+                "color":"D94600",  // 左上角标示背景颜色
+                "image_url":"",
+                "id":1,
+                "url":""    // h5地址（可为空）
+            }
         }
     },
     {
@@ -307,8 +330,8 @@ json文件，格式如下
 ```
 
 <br>
-### 4.游戏详情
-请求地址：{gcenter_host}/games/{id}
+### 4.游戏详情（id或包名搜索）
+请求地址：{gcenter_host}/games/{id/package}
 
 |Request|Method : GET||
 |---|---|---|
@@ -332,11 +355,6 @@ json文件，格式如下
             "/xxxx/xxx.png"
             ...
         ],
-        "tabs":[
-            {"title":"攻略","type":"news","url":""},
-            {"title":"评测","type":"news","url":""},
-            {"title":"新闻","type":"news","url":""}
-        ]
         "game_recommend":[
             {
                 "id":"22",
