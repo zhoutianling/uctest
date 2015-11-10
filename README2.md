@@ -597,7 +597,7 @@ json文件，格式如下
 ```
 [
     {
-        "type":"sliders",
+        "type":"carousel",
         "data":[
             {
                 "type":"gift",
