@@ -688,6 +688,7 @@ json文件，格式如下
     {
         "type":"gifts_search_lists",
         "data":{
+            "id":111,
             "title":"爸爸去哪礼包",
             "content":"礼包内容",
             "usage":"使用说明",
@@ -701,6 +702,7 @@ json文件，格式如下
     {
         "type":"gifts_search_lists",
         "data":{
+            "id":222,
             "title":"爸爸去哪礼包",
             "content":"礼包内容",
             "usage":"使用说明",
@@ -755,6 +757,7 @@ json文件，格式如下
     {
         "type":"my_gifts",
         "data":{
+            "id":111,
             "icon_url":"/xxx/xx.png",
             "gift_title":"",
             "code":"HSDKJFSNCMXZNJ232"
@@ -765,6 +768,7 @@ json文件，格式如下
     {
         "type":"my_gifts",
         "data":{
+            "id":2222,
             "icon_url":"/xxx/xx.png",
             "gift_title":"",
             "code":"HSDKJFSNCMXZN12J232"
@@ -800,6 +804,7 @@ json文件，格式如下
     {
         "type":"game_gifts_lists",
         "data":{
+            "id":111,
             "title":"爸爸去哪礼包",
             "content":"礼包内容",
             "usage":"使用说明",
@@ -830,6 +835,7 @@ json文件，格式如下
     "type":"gifts_detail",
     "data":{
         {game_base_info},
+        "gift_id":111,
         "gift_title":"爸爸去哪礼包",
         "gift_content":"礼包内容",
         "usage":"使用说明",
