@@ -601,14 +601,14 @@ json文件，格式如下
         "type":"carousel",
         "data":[
             {
-                "type":"gift",
+                "clic-type":"gift",
                 "data":{
                     "image_url":"",
                     "id":1
                 }
             },
             {
-                "type":"gift",
+                "click-type":"gift",
                 "data":{
                     "image_url":"",
                     "id":2
