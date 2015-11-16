@@ -863,8 +863,12 @@ json文件，格式如下
 返回数据格式
 ```
 {
-    "code":"SDKJFSZNXCZ234",
-    "usage":"使用说明"
+    "type":"get_gift_code",
+    "data":{
+        "code":"SDKJFSZNXCZ234",
+        "usage":"使用说明",
+        "content":"礼包内容",
+    }
 }
 ```
 
@@ -1110,14 +1114,17 @@ q不为空时但搜索结果为空，返回数据格式
 返回数据格式
 ```
 {
-    "version_name":"1.0",
-    "version_code":"1000",
-    "package_size":"1024",
-    "download_link":"",
-    "created_at":"",
-    "download_link":"",
-    "changelog":"",
-    "package_md5":""
+    "type":"update",
+    "data":{
+        "version_name":"1.0",
+        "version_code":"1000",
+        "package_size":"1024",
+        "download_link":"",
+        "created_at":"",
+        "download_link":"",
+        "changelog":"",
+        "package_md5":""
+    }
 }
 ```
 
@@ -1142,9 +1149,18 @@ with参数格式为
 返回数据格式
 ```
 [
-    {game_base_info},
-    {game_base_info},
-    {game_base_info},
+    {
+        "type":"game_manage",
+        "data":"{game_base_info}"
+    },
+    {
+        "type":"game_manage",
+        "data":"{game_base_info}"
+    },
+    {
+        "type":"game_manage",
+        "data":"{game_base_info}"
+    },
     ...
 ]
 ```
