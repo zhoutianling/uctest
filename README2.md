@@ -153,7 +153,7 @@ json文件，格式如下
 |changelog|string|更新信息|
 |description|string|游戏介绍|
 |download_url|string|下载链接|
-|download_count|string|下载数|
+|download_count|int|下载数|
 |corner_url|string|角标链接|
 |group_id|int|社区小组id，为0时不存在社区|
 |has_gifts|int|1表示存在礼包，0表示不存在|
