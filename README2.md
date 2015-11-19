@@ -1148,21 +1148,15 @@ with参数格式为
 ```
 返回数据格式
 ```
-[
-    {
-        "type":"game_manage",
-        "data":"{game_base_info}"
-    },
-    {
-        "type":"game_manage",
-        "data":"{game_base_info}"
-    },
-    {
-        "type":"game_manage",
-        "data":"{game_base_info}"
-    },
-    ...
-]
+{
+   "type":"game_manage",
+   "data":[
+      "{game_base_info}",
+      "{game_base_info}",
+      "{game_base_info}",
+      ...
+   ]
+}
 ```
 
 <br>
