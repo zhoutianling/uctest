@@ -58,7 +58,7 @@
 #### **http返回header头部参数**
 |参数|类型|说明|
 |---|---|---|
-|X-Links|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|下一页，最后一页链接（列表页数据接口会有该参数返回）|
+|X-Links|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>"rankin_next_page":"http://api.example.com/x?x=x",<br>"ranking_last_page":"http://api.example.com/x?x=x",<br>}|下一页，最后一页链接（列表页数据接口会有该参数返回）|
 |X-Update-Time|2015-09-09 10:10:00|api最后更新时间|
 |X-Retry-After|3600(s)|服务器恢复时间（503错误时会返回该参数）|
 
