@@ -237,25 +237,29 @@ json文件，格式如下
                 "page_name":"YM-ZT", // 页面别名
                 "title":"专题",
                 "id":"",            // ID 适用于 游戏ID，专题ID，分类ID,可为空
-                "color":"D94600"    // 颜色，RGB值
+                "color":"D94600",    // 颜色，RGB值
+                "url":"http://www.example.com"  // 跳转h5页面时的地址，没有时为空
             },
             {
                 "page_name":"YM-SWD",
                 "title":"社区",
                 "id":"",
-                "color":"006000"
+                "color":"006000",
+                "url":"http://www.example.com"
             },
             {
                 "page_name":"YM-GB",
                 "title":"攻略",
                 "id":"",
-                "color":"f75c54"
+                "color":"f75c54",
+                "url":"http://www.example.com"
             },
             {
                 "page_name":"活动列表页",
                 "title":"活动",
                 "id":"",
-                "color":"930093"
+                "color":"930093",
+                "url":"http://www.example.com"
             }
         ]
     },
