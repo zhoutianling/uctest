@@ -151,7 +151,7 @@ json文件，格式如下
 |version_code|int|应用版本号|
 |icon_url|string|icon地址|
 |changelog|string|更新信息|
-|review|string|小编点评|
+|reviews|string|小编点评|
 |download_url|string|下载链接|
 |download_count|int|下载数|
 |corner_url|string|角标链接|
