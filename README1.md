@@ -480,7 +480,8 @@ $data数据格式
 
 # 12.玉米助手本地接口
 
-## 接口参数 
+## 接口参数  
+    Method : GET
     访问例子 /yumizhushou?type=fufei
              /yumizhushou?type=xiangqing&appid=487608658
 | type参数 | appid必须 | 说明 |
@@ -491,7 +492,6 @@ $data数据格式
 | xiangqing | 是 |  游戏详情appid为数字|
 
 
-----------
 
 
 ## 错误返回
