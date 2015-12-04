@@ -353,6 +353,7 @@ json文件，格式如下
         {game_base_info},
         "description":"", // 游戏介绍
         "updated_at":"", // 更新时间
+        "comments_count":2345, // 评论数
         "gifts":[
             {"id":"1","title":"爸爸去哪游戏礼包"},
             {"id":"2","title":"爸爸去哪游戏礼包2"},
