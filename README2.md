@@ -365,16 +365,8 @@ json文件，格式如下
             ...
         ],
         "game_recommend":[
-            {
-                "id":"22",
-                "icon_url":"",
-                "name":"我叫MT"
-            },
-            {
-                "id":"23",
-                "icon_url":"",
-                "name":"我叫MT2"
-            }
+            {game_base_info},
+            {game_base_info},
             ...
         ],
         "hot_tags":[
