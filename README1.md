@@ -512,7 +512,7 @@ $data数据格式
     错误信息 字段为 err_msg
     例子 {err_msg = 'argv type is wrong!'}
     
-# 12.榜单详情接口
+# 15.榜单详情接口
 
 ## 接口参数  
     Method : GET
