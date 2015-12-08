@@ -486,6 +486,13 @@ $data数据格式
 ## 接口参数  
     Method : GET
     访问例子 /api/tops/free
+    
+## 正确返回
+```
+Data: [{type: 1, id: "", title: "",…}]
+ResultCode: "1"
+ResultMessage: "调用成功"
+```
 
 ## 错误返回
     错误信息 字段为 err_msg
@@ -497,6 +504,13 @@ $data数据格式
 ## 接口参数  
     Method : GET
     访问例子 /api/tops/pay
+    
+## 正确返回
+```
+Data: [{type: 1, id: "", title: "",…}]
+ResultCode: "1"
+ResultMessage: "调用成功"
+```
 
 ## 错误返回
     错误信息 字段为 err_msg
@@ -507,6 +521,13 @@ $data数据格式
 ## 接口参数  
     Method : GET
     访问例子 /api/tops/hot
+    
+## 正确返回
+```
+Data: [{type: 1, id: "", title: "",…}]
+ResultCode: "1"
+ResultMessage: "调用成功"
+```
 
 ## 错误返回
     错误信息 字段为 err_msg
@@ -518,6 +539,14 @@ $data数据格式
     Method : GET
     访问例子 /api/tops/{\d+}
              /api/tops/981791837
+             
+## 正确返回
+```
+Data: {version: "1.0.4",…}
+ResultCode: "1"
+ResultMessage: "调用成功"
+```
+
 ## 错误返回
     错误信息 字段为 err_msg
     例子 {err_msg = 'argv type is wrong!'}
