@@ -485,71 +485,32 @@ $data数据格式
 
 ## 接口参数  
     Method : GET
-    访问例子 /api/tops/free
-    
-## 正确返回
-```
-Data: [{type: 1, id: "", title: "",…}]
-ResultCode: "1"
-ResultMessage: "调用成功"
-```
+    访问例子 {server_host}/tops/free
 
-## 错误返回
-    错误信息 字段为 err_msg
-    例子 {err_msg = 'argv type is wrong!'}
-    
-    
 # 13.收费榜单接口
 
 ## 接口参数  
     Method : GET
-    访问例子 /api/tops/pay
-    
-## 正确返回
-```
-Data: [{type: 1, id: "", title: "",…}]
-ResultCode: "1"
-ResultMessage: "调用成功"
-```
+    访问例子 {server_host}/tops/pay
 
-## 错误返回
-    错误信息 字段为 err_msg
-    例子 {err_msg = 'argv type is wrong!'}
-    
 # 14.畅销榜单接口
 
 ## 接口参数  
     Method : GET
-    访问例子 /api/tops/hot
+    访问例子 {server_host}/tops/hot
     
-## 正确返回
-```
-Data: [{type: 1, id: "", title: "",…}]
-ResultCode: "1"
-ResultMessage: "调用成功"
-```
 
-## 错误返回
-    错误信息 字段为 err_msg
-    例子 {err_msg = 'argv type is wrong!'}
+
     
 # 15.榜单详情接口
 
 ## 接口参数  
     Method : GET
-    访问例子 /api/tops/{\d+}
-             /api/tops/981791837
+    访问例子 {server_host}/tops/{\d+}
+             {server_host}/tops/981791837
              
-## 正确返回
-```
-Data: {version: "1.0.4",…}
-ResultCode: "1"
-ResultMessage: "调用成功"
-```
 
-## 错误返回
-    错误信息 字段为 err_msg
-    例子 {err_msg = 'argv type is wrong!'}
+
 <br>
 <br>
 <br>
