@@ -485,19 +485,22 @@ $data数据格式
 
 ## 接口参数  
     Method : GET
-    访问例子 {server_host}/tops/free
+    访问例子 {server_host}/tops/free?page=1
+    page为翻页可选参数
 
 # 13.收费榜单接口
 
 ## 接口参数  
     Method : GET
-    访问例子 {server_host}/tops/pay
+    访问例子 {server_host}/tops/pay?page=1
+    page为翻页可选参数
 
 # 14.畅销榜单接口
 
 ## 接口参数  
     Method : GET
-    访问例子 {server_host}/tops/hot
+    访问例子 {server_host}/tops/hot?page=1
+    page为翻页可选参数
     
 
 
