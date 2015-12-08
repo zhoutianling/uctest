@@ -23,7 +23,7 @@
   * [9.应用详情页](#9应用详情页)
   * [10.搜索框自动匹配](#10搜索框自动匹配)
   * [11.应用搜索结果页](#11应用搜索结果页)
-
+  * [12.玉米助手本地接口](#12玉米助手本地接口)
 
 #### **规格说明**
 |/|说明|
@@ -477,6 +477,26 @@ $data数据格式
 ```
 
 <br>
+
+# 12.玉米助手本地接口
+
+## 接口参数  
+    Method : GET
+    访问例子 /yumizhushou?type=fufei
+             /yumizhushou?type=xiangqing&appid=487608658
+| type参数 | appid必须 | 说明 |
+| -----|:----:| :----|
+| fufei    | 否   | 付费游戏列表   |
+| mianfei    | 否    |  免费游戏列表   |
+| changxiao    | 否   |   畅销游戏列表  |
+| xiangqing | 是 |  游戏详情appid为数字|
+
+
+
+
+## 错误返回
+    错误信息 字段为 err_msg
+    例子 {err_msg = 'argv type is wrong!'}
 <br>
 <br>
 <br>
