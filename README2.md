@@ -177,6 +177,12 @@ json文件，格式如下
 返回数据格式
 ```
 {
+    "launch":{
+        "title":"国庆启动页",
+        "image":"xxxx.png",
+        "url":"",                               // 若有此值，则点击跳h5页面
+        "game_base_info":{game_base_info}       // 若有此值，则点击跳游戏详情页
+    }
     "necessary":[$data],   // 精选必玩数据（第一次启动时有该数据）
     "index":[$data],
     "ranking":[$data],
