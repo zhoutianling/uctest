@@ -227,7 +227,7 @@ json文件，格式如下
         "type":"carousel",
         "data":[
             {
-                "click_type":"game", // 游戏详情/专题/话题/礼包/h5(game/topic/discussion/gift/h5)
+                "click_type":"game", // 游戏详情/专题/话题/礼包/h5(game/topic/discussion/game_gift/gift/h5)
                 "data":{
                     "image_url":"",
                     "id":1,
