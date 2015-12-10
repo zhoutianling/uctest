@@ -192,9 +192,18 @@ json文件，格式如下
 > 精选必玩data数据格式为
 ```
 [
-    {game_base_info},
-    {game_base_info},
-    {game_base_info},
+    {
+        "type":"game",
+        "data":"{game_base_info}"
+    },
+    {
+        "type":"game",
+        "data":"{game_base_info}"
+    },
+    {
+        "type":"game",
+        "data":"{game_base_info}"
+    },
     ...
 ]
 ```
