@@ -758,7 +758,7 @@ json文件，格式如下
 
 <br>
 ### 11.我的礼包
-请求地址：{gcenter_host}/gifts?owner={user_id}
+请求地址：{gcenter_host}/mygifts
 
 |Request|Method : GET||
 |---|---|---|
