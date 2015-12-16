@@ -607,6 +607,7 @@ json文件，格式如下
 |---|---|---|
 |参数名|类型|说明|
 |q|string|搜索关键字（可选）|
+|page|int|搜索结分页参数（可选）|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
 没有参数时，为礼包中心页，返回数据格式
@@ -684,22 +685,20 @@ json文件，格式如下
 [
     {
         "type":"gifts_search_ofgame",
-        "data":[
-            {
-                "id":"1",
-                "title":"爸爸去哪",
-                "icon_url":"/xxx/xx.png",
-                "total":"5000",
-                "remain":"4999"
-            },
-            {
-                "id":"2",
-                "title":"爸爸去哪2",
-                "icon_url":"/xxx/xx.png",
-                "total":"5000",
-                "remain":"4999"
-            },
-        ]
+        "data":{
+             "id":"1",
+             "title":"爸爸去哪",
+             "icon_url":"/xxx/xx.png",
+             "total":"5000",
+             "remain":"4999"
+         },
+         "data":{
+             "id":"2",
+             "title":"爸爸去哪2",
+             "icon_url":"/xxx/xx.png",
+             "total":"5000",
+             "remain":"4999"
+         }
     },
     {
         "type":"gifts_search_lists",
