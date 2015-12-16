@@ -36,6 +36,7 @@
   * [23.游戏管理](#23游戏管理)
   * [24.反馈信息展示](#24反馈信息展示)
   * [25.提交反馈](#25提交反馈)
+  * [26.标签详情页](#26标签详情页)
 
 
 #### **规格说明**
@@ -1221,3 +1222,31 @@ with参数格式为
 
 <br>
 
+<br>
+### 26.标签详情页
+请求地址：{gcenter_host}/tags/{id}
+
+|Request|Method : GET||
+|---|---|---|
+|参数名|类型|说明|
+|page|int|页数|
+|**Respone**|**DataType : json**||
+|参数名|类型|说明|
+返回数据格式
+```
+[
+    {
+        "type":"game",
+        "data":"{game_base_info}"
+    },
+    {
+        "type":"game",
+        "data":"{game_base_info}"
+    },
+    {
+        "type":"game",
+        "data":"{game_base_info}"
+    },
+    ...
+]
+```
