@@ -691,8 +691,11 @@ json文件，格式如下
              "icon_url":"/xxx/xx.png",
              "total":"5000",
              "remain":"4999"
-         },
-         "data":{
+         }
+    },
+    {
+        "type":"gifts_search_ofgame",
+        "data":{
              "id":"2",
              "title":"爸爸去哪2",
              "icon_url":"/xxx/xx.png",
