@@ -182,12 +182,9 @@ json文件，格式如下
         "title":"国庆启动页",
         "image":"xxxx.png",
         "url":"",                               // 若有此值，则点击跳h5页面
-        "game_base_info":{game_base_info}       // 若有此值，则点击跳游戏详情页
+        "game":{game_base_info}       // 若有此值，则点击跳游戏详情页
     }
-    "necessary":[$data],   // 精选必玩数据（第一次启动时有该数据）
-    "index":[$data],
-    "ranking":[$data],
-    "cats":[$data]
+    "necessary":[$data]   // 精选必玩数据（第一次启动时有该数据）
 }
 ```
 > 精选必玩data数据格式为
@@ -366,7 +363,7 @@ json文件，格式如下
 {
     "type":"game_detail",
     "data":{
-        "game_base_info":{game_base_info},
+        "game":{game_base_info},
         "description":"", // 游戏介绍
         "updated_at":"", // 更新时间
         "comments_count":2345, // 评论数
@@ -638,15 +635,15 @@ json文件，格式如下
         "type":"hot_gifts",
         "data":[
             {
-                "gift_id":1,
-                "gift_title":"天天飞车",
+                "id":1,
+                "title":"天天飞车",
                 "icon_url":"http://xxx.com/xxx/xx.png",
                 "total":5000,
                 "remain":2000
             },
             {
-                "gift_id":1,
-                "gift_title":"天天飞车",
+                "id":1,
+                "title":"天天飞车",
                 "icon_url":"http://xxx.com/xxx/xx.png",
                 "total":5000,
                 "remain":2000
@@ -659,15 +656,15 @@ json文件，格式如下
         "data":[
             {
                 "icon_url":"/xxx/xx.png",
-                "gift_id":22,
-                "gift_title":"黄金礼包",
+                "id":22,
+                "title":"黄金礼包",
                 "total":5000,
                 "remain":2000
             },
             {
                 "icon_url":"/xxx/xx.png",
-                "gift_id":22,
-                "gift_title":"黄金礼包",
+                "id":22,
+                "title":"黄金礼包",
                 "total":5000,
                 "remain":2000
             },
@@ -773,7 +770,7 @@ json文件，格式如下
         "data":{
             "id":111,
             "icon_url":"/xxx/xx.png",
-            "gift_title":"",
+            "title":"",
             "code":"HSDKJFSNCMXZNJ232"
             "stocked_at":"2015-09-25 18:30:16",
             "unstocked_at":"2016-09-25 23:59:59"
@@ -784,7 +781,7 @@ json文件，格式如下
         "data":{
             "id":2222,
             "icon_url":"/xxx/xx.png",
-            "gift_title":"",
+            "title":"",
             "code":"HSDKJFSNCMXZN12J232"
             "stocked_at":"2015-09-25 18:30:16",
             "unstocked_at":"2016-09-25 23:59:59"
@@ -810,24 +807,26 @@ json文件，格式如下
     {
         "type":"game_gifts_summary",
         "data":{
-            "game_base_info":{game_base_info},
+            "game":{game_base_info},
             "total":"5000",
             "received_count":2,
         }
     },
     {
         "type":"game_gifts_lists",
-        "data":{
-            "id":111,
-            "title":"爸爸去哪礼包",
-            "content":"礼包内容",
-            "usage":"使用说明",
-            "total":"5000",
-            "remain":"4999",
-            "is_received":"false",
-            "stocked_at":"2015-09-25 18:30:16",
-            "unstocked_at":"2016-09-25 23:59:59"
-        }
+        "data":[
+            {
+                "id":111,
+                "title":"爸爸去哪礼包",
+                "content":"礼包内容",
+                "usage":"使用说明",
+                "total":"5000",
+                "remain":"4999",
+                "is_received":"false",
+                "stocked_at":"2015-09-25 18:30:16",
+                "unstocked_at":"2016-09-25 23:59:59"
+            }
+        ]   
     },
     ...
 ]
@@ -848,9 +847,9 @@ json文件，格式如下
 {
     "type":"gifts_detail",
     "data":{
-        "game_base_info":{game_base_info},
-        "gift_id":111,
-        "gift_title":"爸爸去哪礼包",
+        "game":{game_base_info},
+        "id":111,
+        "title":"爸爸去哪礼包",
         "gift_content":"礼包内容",
         "usage":"使用说明",
         "total":"5000",
