@@ -678,21 +678,21 @@ json文件，格式如下
 [
     {
         "type":"gifts_search_ofgame",
-        "data":{
-             "id":"1",
-             "title":"爸爸去哪",
-             "icon_url":"/xxx/xx.png",
-             "gift_total":"2"
-         }
-    },
-    {
-        "type":"gifts_search_ofgame",
-        "data":{
-             "id":"2",
-             "title":"爸爸去哪2",
-             "icon_url":"/xxx/xx.png",
-             "gift_total":"3"
-         }
+        "data":[
+            {
+                "id":"1",
+                "title":"爸爸去哪",
+                "icon_url":"/xxx/xx.png",
+                "gift_total":"2"
+            },
+            {
+                "id":"1",
+                "title":"爸爸去哪",
+                "icon_url":"/xxx/xx.png",
+                "gift_total":"2"
+            }
+            ...
+        ]
     },
     {
         "type":"gifts_search_lists",
