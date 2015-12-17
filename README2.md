@@ -850,7 +850,7 @@ json文件，格式如下
         "game":{game_base_info},
         "id":111,
         "title":"爸爸去哪礼包",
-        "gift_content":"礼包内容",
+        "content":"礼包内容",
         "usage":"使用说明",
         "total":"5000",
         "remain":"4999",
