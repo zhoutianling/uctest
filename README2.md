@@ -682,8 +682,7 @@ json文件，格式如下
              "id":"1",
              "title":"爸爸去哪",
              "icon_url":"/xxx/xx.png",
-             "total":"5000",
-             "remain":"4999"
+             "gift_total":"2"
          }
     },
     {
@@ -692,8 +691,7 @@ json文件，格式如下
              "id":"2",
              "title":"爸爸去哪2",
              "icon_url":"/xxx/xx.png",
-             "total":"5000",
-             "remain":"4999"
+             "gift_total":"3"
          }
     },
     {
