@@ -638,15 +638,15 @@ json文件，格式如下
         "type":"hot_gifts",
         "data":[
             {
-                "id":1,
-                "title":"天天飞车",
+                "gift_id":1,
+                "gift_title":"天天飞车",
                 "icon_url":"http://xxx.com/xxx/xx.png",
                 "total":5000,
                 "remain":2000
             },
             {
-                "id":1,
-                "title":"天天飞车",
+                "gift_id":1,
+                "gift_title":"天天飞车",
                 "icon_url":"http://xxx.com/xxx/xx.png",
                 "total":5000,
                 "remain":2000
@@ -658,8 +658,6 @@ json文件，格式如下
         "type":"new_gifts",
         "data":[
             {
-                "id":1,
-                "title":"天天飞车",
                 "icon_url":"/xxx/xx.png",
                 "gift_id":22,
                 "gift_title":"黄金礼包",
@@ -667,8 +665,6 @@ json文件，格式如下
                 "remain":2000
             },
             {
-                "id":1,
-                "title":"天天飞车",
                 "icon_url":"/xxx/xx.png",
                 "gift_id":22,
                 "gift_title":"黄金礼包",
