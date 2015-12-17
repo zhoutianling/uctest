@@ -366,7 +366,7 @@ json文件，格式如下
 {
     "type":"game_detail",
     "data":{
-        {game_base_info},
+        "game_base_info":{game_base_info},
         "description":"", // 游戏介绍
         "updated_at":"", // 更新时间
         "comments_count":2345, // 评论数
@@ -810,7 +810,7 @@ json文件，格式如下
     {
         "type":"game_gifts_summary",
         "data":{
-            {game_base_info},
+            "game_base_info":{game_base_info},
             "total":"5000",
             "received_count":2,
         }
@@ -848,7 +848,7 @@ json文件，格式如下
 {
     "type":"gifts_detail",
     "data":{
-        {game_base_info},
+        "game_base_info":{game_base_info},
         "gift_id":111,
         "gift_title":"爸爸去哪礼包",
         "gift_content":"礼包内容",
