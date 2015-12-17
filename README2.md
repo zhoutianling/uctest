@@ -769,7 +769,7 @@ json文件，格式如下
         "type":"my_gifts",
         "data":{
             "id":111,
-            "icon_url":"/xxx/xx.png",
+            "icon":"/xxx/xx.png",
             "title":"",
             "code":"HSDKJFSNCMXZNJ232"
             "stocked_at":"2015-09-25 18:30:16",
@@ -780,7 +780,7 @@ json文件，格式如下
         "type":"my_gifts",
         "data":{
             "id":2222,
-            "icon_url":"/xxx/xx.png",
+            "icon":"/xxx/xx.png",
             "title":"",
             "code":"HSDKJFSNCMXZN12J232"
             "stocked_at":"2015-09-25 18:30:16",
