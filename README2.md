@@ -1230,7 +1230,20 @@ with参数格式为
          "identifyUser":"user",  // 反馈人标识user:用户，system:系统，admin:管理员
          "created_at":"2015-09-25 18:30:16"
      }
- },
+ }
+ 
+ or 
+ 
+ {
+     "type":"image_feedback",
+     "data":{
+         "identifyUser":"user",
+         "image_url":"/xxx/xx.png",
+         "thumb_url":"/xxx/xxx.png",
+         "created_at":"2015-09-25 18:30:16"
+     }
+ }
+ 
 ```
 
 <br>
