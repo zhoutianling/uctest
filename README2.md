@@ -1221,7 +1221,17 @@ with参数格式为
 |content|string 或者 file|反馈内容|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
-> 返回message信息，提交失败会有error信息
+返回数据格式
+```
+ {
+     "type":"text_feedback",
+     "data":{
+         "content":"呵呵哒",
+         "identifyUser":"user",  // 反馈人标识user:用户，system:系统，admin:管理员
+         "created_at":"2015-09-25 18:30:16"
+     }
+ },
+```
 
 <br>
 
