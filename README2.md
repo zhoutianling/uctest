@@ -1139,6 +1139,7 @@ q不为空时但搜索结果为空，返回数据格式
         "download_link":"",
         "created_at":"",
         "download_link":"",
+        "force":""
         "changelog":"",
         "package_md5":""
     }
