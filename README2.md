@@ -681,15 +681,11 @@ json文件，格式如下
         "type":"gifts_search_ofgame",
         "data":[
             {
-                "id":"1",
-                "title":"爸爸去哪",
-                "icon_url":"/xxx/xx.png",
+                "game":{game_base_info},
                 "gift_total":"2"
             },
             {
-                "id":"1",
-                "title":"爸爸去哪",
-                "icon_url":"/xxx/xx.png",
+                "game":{game_base_info},
                 "gift_total":"2"
             }
             ...
