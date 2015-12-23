@@ -1215,7 +1215,7 @@ with参数格式为
 |Request|Method : POST||
 |---|---|---|
 |参数名|类型|说明|
-|content|string 或者 file|反馈内容|
+|content/image|string 或者 file|反馈内容|
 |**Respone**|**DataType : json**||
 |参数名|类型|说明|
 返回数据格式
