@@ -158,7 +158,7 @@ json文件，格式如下
 |corner_url|string|角标链接|
 |group_id|int|社区小组id，为0时不存在社区|
 |has_gifts|int|1表示存在礼包，0表示不存在|
-|mark|string|游戏标识（礼包/社区/攻略...）|
+|mark|string|游戏标识（礼包:gift/社区:bbs/攻略:strategy...）|
 |comments|float|游戏评分|
 
 
