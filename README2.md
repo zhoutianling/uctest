@@ -1309,6 +1309,7 @@ with参数格式为
         'id':'xx',      // 专题id
         'title':'',     // 专题title
         'image':'',     // 图片
+        'notice_style':''  // 1为默认，2为小图，3为大图
         'summary':'',   // 简介
         'updated_at':'',    // 更新时间
     }
