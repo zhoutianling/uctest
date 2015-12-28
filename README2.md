@@ -1277,7 +1277,7 @@ with参数格式为
 
 <br>
 ### 27.个推资源请求接口
-请求地址：{gcenter_host}/push/{id}.json
+请求地址：{gcenter_host}/push/{id}
 
 |Request|Method : GET||
 |---|---|---|
