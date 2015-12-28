@@ -1289,7 +1289,8 @@ with参数格式为
 ```
 类型为游戏时返回格式
 {
-    'game':{
+   'type':'push_game',
+   'data':{
         'id':'xx',
         'main_title':'xx',
         'sub_title':'xx',
@@ -1305,7 +1306,8 @@ with参数格式为
 ```
 类型为专题时返回格式
 {
-    'topice':{
+   'type':'push_topice',
+   'data':{
         'id':'xx',      // 专题id
         'title':'',     // 专题title
         'image':'',     // 图片
@@ -1318,7 +1320,8 @@ with参数格式为
 ```
 类型为版本升级时返回格式
 {
-    'app':{
+   'type':'app',
+   'data':{
         'id':'xx',
         'main_title':'xx',
         'sub_title':'xx',
