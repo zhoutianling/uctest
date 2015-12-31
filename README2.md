@@ -1306,7 +1306,7 @@ with参数格式为
 ```
 类型为专题时返回格式
 {
-   'type':'push_topice',
+   'type':'push_topic',
    'data':{
         'id':'xx',      // 专题id
         'title':'',     // 专题title
@@ -1320,7 +1320,7 @@ with参数格式为
 ```
 类型为版本升级时返回格式
 {
-   'type':'app',
+   'type':'push_app',
    'data':{
         'id':'xx',
         'main_title':'xx',
