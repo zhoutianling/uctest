@@ -396,7 +396,8 @@ json文件，格式如下
             "star3_count":"100",
             "star4_count":"100",
             "star5_count":"500"
-        }
+        },
+        "is_comment":true/false // 用户是否评论
     }
 }
 ```
