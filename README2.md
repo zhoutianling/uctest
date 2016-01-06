@@ -1310,6 +1310,8 @@ with参数格式为
    'type':'push_topic',
    'data':{
         'id':'xx',      // 专题id
+        'main_title':'xx',
+        'sub_title':'xx',
         'title':'',     // 专题title
         'image':'',     // 图片
         'notice_style':''  // 1为默认，2为小图，3为大图
