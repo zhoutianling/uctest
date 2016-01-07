@@ -1296,6 +1296,8 @@ with参数格式为
         'main_title':'xx',
         'sub_title':'xx',
         'icon':'',
+        'image':'',     // 图片
+        'notice_style':''  // 1为默认，2为小图，3为大图
         'game':{
             'id':'',
             'package':'',
@@ -1312,9 +1314,10 @@ with参数格式为
         'id':'xx',      // 专题id
         'main_title':'xx',
         'sub_title':'xx',
-        'title':'',     // 专题title
+        'icon':'',
         'image':'',     // 图片
         'notice_style':''  // 1为默认，2为小图，3为大图
+        'title':'',     // 专题title
         'summary':'',   // 简介
         'updated_at':'',    // 更新时间
     }
