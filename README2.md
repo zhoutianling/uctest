@@ -1222,27 +1222,45 @@ with参数格式为
 |参数名|类型|说明|
 返回数据格式
 ```
- {
-     "type":"text_feedback",
-     "data":{
-         "content":"呵呵哒",
-         "identifyUser":"user",  // 反馈人标识user:用户，system:系统，admin:管理员
-         "created_at":"2015-09-25 18:30:16"
-     }
- }
+ [
+   {
+      "type": "text_feedback",
+         "data": {
+         "content": "xxxx",
+         "identifyUser": "user",
+         "created_at": "2016-01-29 14:33:06"
+      }
+   },
+  {
+      "type": "text_feedback",
+         "data": {
+         "content": "你好",
+         "identifyUser": "system",
+         "created_at": "2016-01-29 14:33:07"
+      }
+  }
+]
  
  or 
- 
- {
-     "type":"image_feedback",
-     "data":{
+[ 
+   {
+      "type":"image_feedback",
+      "data":{
          "identifyUser":"user",
          "image_url":"/xxx/xx.png",
          "thumb_url":"/xxx/xxx.png",
          "created_at":"2015-09-25 18:30:16"
-     }
- }
- 
+      }
+   },
+   {
+      "type": "text_feedback",
+      "data": {
+         "content": "你好",
+         "identifyUser": "system",
+         "created_at": "2016-01-29 14:33:07"
+      }
+   }
+]
 ```
 
 <br>
