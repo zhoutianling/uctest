@@ -250,31 +250,51 @@ json文件，格式如下
         "data":[
             {
                 "page_name":"YM-ZT", // 页面别名
-                "title":"专题",
+                "title":"专题",
                 "id":"",            // ID 适用于 游戏ID，专题ID，分类ID,可为空
                 "color":"D94600",    // 颜色，RGB值
-                "url":"http://www.example.com"  // 跳转h5页面时的地址，没有时为空
+                "url":"http://www.example.com"  // 跳转h5页面时的地址，没有时为空，
+                "page_name_410":"h5|applist|topic|game" // 新增4种类型：410版本只识别h5类型，其余类型为null,
+                "data": {
+                  id: 1,
+                  text: "xxx"
+                }, // 除了h5类型外，其余类型将新增data属性值
             },
             {
                 "page_name":"YM-SWD",
                 "title":"社区",
                 "id":"",
                 "color":"006000",
-                "url":"http://www.example.com"
+                "url":"http://www.example.com"，
+                "page_name_410":"h5|applist|topic|game" // 新增4种类型：410版本只识别h5类型，其余类型为null,
+                "data": {
+                  id: 1,
+                  text: "xxx"
+                }, // 除了h5类型外，其余类型将新增data属性值
             },
             {
                 "page_name":"YM-GB",
                 "title":"攻略",
                 "id":"",
                 "color":"f75c54",
-                "url":"http://www.example.com"
+                "url":"http://www.example.com"，
+                "page_name_410":"h5|applist|topic|game" // 新增4种类型：410版本只识别h5类型，其余类型为null,
+                "data": {
+                  id: 1,
+                  text: "xxx"
+                }, // 除了h5类型外，其余类型将新增data属性值
             },
             {
                 "page_name":"活动列表页",
                 "title":"活动",
                 "id":"",
                 "color":"930093",
-                "url":"http://www.example.com"
+                "url":"http://www.example.com"，
+                "page_name_410":"h5|applist|topic|game" // 新增4种类型：410版本只识别h5类型，其余类型为null,
+                "data": {
+                  id: 1,
+                  text: "xxx"
+                }, // 除了h5类型外，其余类型将新增data属性值
             }
         ]
     },
