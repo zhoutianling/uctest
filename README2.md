@@ -1,5 +1,4 @@
-# **天天游戏中心API文档**
----
+# 天天游戏中心API文档 
 
 * [<strong>天天游戏中心API文档</strong>](#天天游戏中心api文档)
     * [<strong>规格说明</strong>](#规格说明)
@@ -11,90 +10,90 @@
     * [<strong>host配置文件地址</strong>](#host配置文件地址)
     * [<strong>game_base_info</strong>](#game_base_info)
 * [<strong>接口</strong>](#接口)
-  * [1.启动app时预加载主页及其他信息](#1启动app时预加载主页及其他信息)
-  * [2.精选](#2精选)
-  * [3.排行](#3排行)
-  * [4.游戏详情（id或包名搜索）](#4游戏详情id或包名搜索)
-  * [5.分类](#5分类)
-  * [6.热门分类游戏列表页](#6热门分类游戏列表页)
-  * [7.分类的游戏列表](#7分类的游戏列表)
-  * [8.专题列表页](#8专题列表页)
-  * [9.专题详情页](#9专题详情页)
-  * [10.礼包页](#10礼包页)
-  * [11.我的礼包](#11我的礼包)
-  * [12.游戏的礼包列表](#12游戏的礼包列表)
-  * [13.礼包详情](#13礼包详情)
-  * [14.礼包领取](#14礼包领取)
-  * [15.活动](#15活动)
-  * [16.首发](#16首发)
-  * [17.搜索](#17搜索)
-  * [18.自动匹配](#18自动匹配)
-  * [19.游戏评论](#19游戏评论)
-  * [20.提交游戏评论](#20提交游戏评论)
-  * [21.数据中心](#21数据中心)
-  * [22.检查更新](#22检查更新)
-  * [23.游戏管理](#23游戏管理)
-  * [24.反馈信息展示](#24反馈信息展示)
-  * [25.提交反馈](#25提交反馈)
-  * [26.标签详情页](#26标签详情页)
-  * [27.个推资源请求接口](#27个推资源请求接口)
+    * [1.启动app时预加载主页及其他信息](#1启动app时预加载主页及其他信息)
+    * [2.精选](#2精选)
+    * [3.排行](#3排行)
+    * [4.游戏详情（id或包名搜索）](#4游戏详情id或包名搜索)
+    * [5.分类](#5分类)
+    * [6.热门分类游戏列表页](#6热门分类游戏列表页)
+    * [7.分类的游戏列表](#7分类的游戏列表)
+    * [8.专题列表页](#8专题列表页)
+    * [9.专题详情页](#9专题详情页)
+    * [10.礼包页](#10礼包页)
+    * [11.我的礼包](#11我的礼包)
+    * [12.游戏的礼包列表](#12游戏的礼包列表)
+    * [13.礼包详情](#13礼包详情)
+    * [14.礼包领取](#14礼包领取)
+    * [15.活动](#15活动)
+    * [16.首发](#16首发)
+    * [17.搜索](#17搜索)
+    * [18.自动匹配](#18自动匹配)
+    * [19.游戏评论](#19游戏评论)
+    * [20.提交游戏评论](#20提交游戏评论)
+    * [21.数据中心](#21数据中心)
+    * [22.检查更新](#22检查更新)
+    * [23.游戏管理](#23游戏管理)
+    * [24.反馈信息展示](#24反馈信息展示)
+    * [25.提交反馈](#25提交反馈)
+    * [26.标签详情页](#26标签详情页)
+    * [27.个推资源请求接口](#27个推资源请求接口)
 
 
 #### **规格说明**
-|/|说明|
-|-----|-------|
-|版本|v4.0|
-|协议版本|v3.0|
-|调用方式|HTTP RESTFUL [GET POST PUT DELETE]|
-|返回格式|二进制加密数据|
-|返回数据|{data:{}, message:{}, error:{}}|
+| /    | 说明                                 |
+| ---- | ---------------------------------- |
+| 版本   | v4.0                               |
+| 协议版本 | v3.0                               |
+| 调用方式 | HTTP RESTFUL [GET POST PUT DELETE] |
+| 返回格式 | 二进制加密数据                            |
+| 返回数据 | {data:{}, message:{}, error:{}}    |
 
 <br>
 #### **http请求头部参数**
-|参数|说明|
-|----|---------------|
-|X-Client-Info|公共参数，包括如下：<br>uuid：设备唯一标识<br>imei：机器码<br>version：客户端版本<br>version_code：客户端版本代号<br>os_version：操作系统版本<br>device：设备型号<br>metrics：设备分辨率480X800<br>channel：渠道别名<br>access_token：用户登录后服务器返回的用户token，作每次请求的验证串|
-|X-Update-Time|api最后更新时间|
+| 参数            | 说明                                       |
+| ------------- | ---------------------------------------- |
+| X-Client-Info | 公共参数，包括如下：<br>uuid：设备唯一标识<br>imei：机器码<br>version：客户端版本<br>version_code：客户端版本代号<br>os_version：操作系统版本<br>device：设备型号<br>metrics：设备分辨率480X800<br>channel：渠道别名<br>access_token：用户登录后服务器返回的用户token，作每次请求的验证串 |
+| X-Update-Time | api最后更新时间                                |
 
 <br>
 #### **http返回header头部参数**
-|参数|类型|说明|
-|---|---|---|
-|X-Links|{<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>}|下一页，最后一页链接（列表页数据接口会有该参数返回）|
-|X-Update-Time|2015-09-09 10:10:00|api最后更新时间|
-|X-Retry-After|3600(s)|服务器恢复时间（503错误时会返回该参数）|
+| 参数            | 类型                                       | 说明                         |
+| ------------- | ---------------------------------------- | -------------------------- |
+| X-Links       | {<br>"next_page":"http://api.example.com/x?x=x",<br>"last_page":"http://api.example.com/x?x=x"<br>} | 下一页，最后一页链接（列表页数据接口会有该参数返回） |
+| X-Update-Time | 2015-09-09 10:10:00                      | api最后更新时间                  |
+| X-Retry-After | 3600(s)                                  | 服务器恢复时间（503错误时会返回该参数）      |
 
 #### **返回状态码**
-|status值|说明|
-|---|---|
-|200|get请求成功|
-|201|post请求成功，并创建服务器资源|
-|301|原url已废弃，跳转至资源所在处url（永久）|
-|302|重定向url，并发起get请求（暂时）|
-|303|允许post请求|
-|304|请求成功，但不更新内容|
-|400|请求错误，当header参数格式错误或body解析错误|
-|401|请求未授权|
-|403|请求被拒绝|
-|404|找不到资源|
-|405|请求方式错误|
-|408|请求超时|
-|413|请求body实体太大|
-|414|请求url太长|
-|422|参数错误，返回error信息|
-|500|服务器出错|
-|502|无法链接服务器|
-|503|服务器维护中，header会有服务器恢复时间Retry-After参数|
-|504|网关超时|
+| status值 | 说明                                  |
+| ------- | ----------------------------------- |
+| 200     | get请求成功                             |
+| 201     | post请求成功，并创建服务器资源                   |
+| 301     | 原url已废弃，跳转至资源所在处url（永久）             |
+| 302     | 重定向url，并发起get请求（暂时）                 |
+| 303     | 允许post请求                            |
+| 304     | 请求成功，但不更新内容                         |
+| 400     | 请求错误，当header参数格式错误或body解析错误         |
+| 401     | 请求未授权                               |
+| 403     | 请求被拒绝                               |
+| 404     | 找不到资源                               |
+| 405     | 请求方式错误                              |
+| 408     | 请求超时                                |
+| 413     | 请求body实体太大                          |
+| 414     | 请求url太长                             |
+| 422     | 参数错误，返回error信息                      |
+| 500     | 服务器出错                               |
+| 502     | 无法链接服务器                             |
+| 503     | 服务器维护中，header会有服务器恢复时间Retry-After参数 |
+| 504     | 网关超时                                |
 
 <br>
 #### **错误信息error**
-|错误名称|描述|
-|---|---|
-|missing|资源不存在|
-|missing_field|缺少参数|
-|invalid|格式错误或参数无效|
-|already_exists|字段（唯一索引）存在相同值|
+| 错误名称           | 描述            |
+| -------------- | ------------- |
+| missing        | 资源不存在         |
+| missing_field  | 缺少参数          |
+| invalid        | 格式错误或参数无效     |
+| already_exists | 字段（唯一索引）存在相同值 |
 ```
 {
     "message": "验证错误",
@@ -112,11 +111,11 @@
 
 AES 128位 CBC 加密
 
-|变量|值|
-|---|---|
-|KEY|待定|
-|IV|为客户端version_code|
-|SALT|nil|
+| 变量   | 值                |
+| ---- | ---------------- |
+| KEY  | 待定               |
+| IV   | 为客户端version_code |
+| SALT | nil              |
 
 ```
 加密
@@ -141,26 +140,26 @@ json文件，格式如下
 
 <br>
 #### **game_base_info**
-|参数名|类型|说明|
-|---|---|---|
-|id|int|应用ID|
-|name|string|应用名称|
-|cat_name|string|分类|
-|package_name|string|游戏包名|
-|package_md5|string|安装包MD5|
-|package_size|int|安装包大小|
-|version_name|string|应用版本|
-|version_code|int|应用版本号|
-|icon_url|string|icon地址|
-|changelog|string|更新信息|
-|reviews|string|小编点评|
-|download_url|string|下载链接|
-|download_count|int|下载数|
-|corner_url|string|角标链接|
-|group_id|int|社区小组id，为0时不存在社区|
-|has_gifts|bool|true表示存在礼包，false表示不存在|
-|mark|string|游戏标识（礼包:gift/社区:bbs/攻略:strategy...）|
-|comments|float|游戏评分|
+| 参数名            | 类型     | 说明                                  |
+| -------------- | ------ | ----------------------------------- |
+| id             | int    | 应用ID                                |
+| name           | string | 应用名称                                |
+| cat_name       | string | 分类                                  |
+| package_name   | string | 游戏包名                                |
+| package_md5    | string | 安装包MD5                              |
+| package_size   | int    | 安装包大小                               |
+| version_name   | string | 应用版本                                |
+| version_code   | int    | 应用版本号                               |
+| icon_url       | string | icon地址                              |
+| changelog      | string | 更新信息                                |
+| reviews        | string | 小编点评                                |
+| download_url   | string | 下载链接                                |
+| download_count | int    | 下载数                                 |
+| corner_url     | string | 角标链接                                |
+| group_id       | int    | 社区小组id，为0时不存在社区                     |
+| has_gifts      | bool   | true表示存在礼包，false表示不存在               |
+| mark           | string | 游戏标识（礼包:gift/社区:bbs/攻略:strategy...） |
+| comments       | float  | 游戏评分                                |
 
 
 
@@ -171,12 +170,12 @@ json文件，格式如下
 
 请求地址：{gcenter_host}/start
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 {
@@ -214,12 +213,12 @@ json文件，格式如下
 ### 2.精选
 请求地址：{gcenter_host}/index
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -344,13 +343,13 @@ json文件，格式如下
 ### 3.排行
 请求地址：{gcenter_host}/ranking
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|type|string|排行类型 单机/网游/最热/最新（offline/online/hot/new）|
-|page|int|页数|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |                                          |
+| ----------- | ------------------- | ---------------------------------------- |
+| 参数名         | 类型                  | 说明                                       |
+| type        | string              | 排行类型 单机/网游/最热/最新（offline/online/hot/new） |
+| page        | int                 | 页数                                       |
+| **Respone** | **DataType : json** |                                          |
+| 参数名         | 类型                  | 说明                                       |
 返回数据格式
 ```
 [
@@ -374,12 +373,12 @@ json文件，格式如下
 ### 4.游戏详情（id或包名搜索）
 请求地址：{gcenter_host}/games/{id/package}
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 {
@@ -426,12 +425,12 @@ json文件，格式如下
 ### 5.分类
 请求地址：{gcenter_host}/cats
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -479,13 +478,13 @@ json文件，格式如下
 ### 6.热门分类游戏列表页
 请求地址：{gcenter_host}/hotcats
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|id|int|热门分类id|
-|page|int|页数|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |        |
+| ----------- | ------------------- | ------ |
+| 参数名         | 类型                  | 说明     |
+| id          | int                 | 热门分类id |
+| page        | int                 | 页数     |
+| **Respone** | **DataType : json** |        |
+| 参数名         | 类型                  | 说明     |
 返回数据格式
 ```
 [
@@ -509,14 +508,14 @@ json文件，格式如下
 ### 7.分类的游戏列表
 请求地址：{gcenter_host}/cats/{id}
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|tag_id|int|标签id|
-|sort|排序|全部/最新/最热（all/new/hot）|
-|page|int|页数|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |                       |
+| ----------- | ------------------- | --------------------- |
+| 参数名         | 类型                  | 说明                    |
+| tag_id      | int                 | 标签id                  |
+| sort        | 排序                  | 全部/最新/最热（all/new/hot） |
+| page        | int                 | 页数                    |
+| **Respone** | **DataType : json** |                       |
+| 参数名         | 类型                  | 说明                    |
 返回数据格式
 ```
 [
@@ -540,12 +539,12 @@ json文件，格式如下
 ### 8.专题列表页
 请求地址：{gcenter_host}/topics
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|page|int|页数|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| page        | int                 | 页数   |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式（第二个开始为往期专题）
 ```
 [
@@ -584,12 +583,12 @@ json文件，格式如下
 ### 9.专题详情页
 请求地址：{gcenter_host}/topics/{id}
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -623,13 +622,13 @@ json文件，格式如下
 ### 10.礼包页
 请求地址：{gcenter_host}/gifts
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|q|string|搜索关键字（可选）|
-|page|int|搜索结分页参数（可选）|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |             |
+| ----------- | ------------------- | ----------- |
+| 参数名         | 类型                  | 说明          |
+| q           | string              | 搜索关键字（可选）   |
+| page        | int                 | 搜索结分页参数（可选） |
+| **Respone** | **DataType : json** |             |
+| 参数名         | 类型                  | 说明          |
 没有参数时，为礼包中心页，返回数据格式
 ```
 [
@@ -773,12 +772,12 @@ json文件，格式如下
 ### 11.我的礼包
 请求地址：{gcenter_host}/mygifts
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|page|int|页数|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| page        | int                 | 页数   |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -812,12 +811,12 @@ json文件，格式如下
 ### 12.游戏的礼包列表
 请求地址：{gcenter_host}/games/{game_id}/gifts
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|page|int|页数|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| page        | int                 | 页数   |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -853,12 +852,12 @@ json文件，格式如下
 ### 13.礼包详情
 请求地址：{gcenter_host}/gifts/{id}
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 {
@@ -883,12 +882,12 @@ json文件，格式如下
 ### 14.礼包领取
 请求地址：{gcenter_host}/gifts/{id}/code
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 {
@@ -905,12 +904,12 @@ json文件，格式如下
 ### 15.活动
 请求地址：{gcenter_host}/activities
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -948,13 +947,13 @@ json文件，格式如下
 ### 16.首发
 请求地址：{gcenter_host}/debuts
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|page|int|页数|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| page        | int                 | 页数   |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -978,13 +977,13 @@ json文件，格式如下
 ### 17.搜索
 请求地址：{gcenter_host}/search
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|q|string|搜索关键字|
-|page|int|搜索结果分页|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |        |
+| ----------- | ------------------- | ------ |
+| 参数名         | 类型                  | 说明     |
+| q           | string              | 搜索关键字  |
+| page        | int                 | 搜索结果分页 |
+| **Respone** | **DataType : json** |        |
+| 参数名         | 类型                  | 说明     |
 q为空时，返回数据格式
 ```
 [
@@ -1052,12 +1051,12 @@ q不为空时但搜索结果为空，返回数据格式
 ### 18.自动匹配
 请求地址：{gcenter_host}/search/autocomplete
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|q|string|匹配关键字|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |       |
+| ----------- | ------------------- | ----- |
+| 参数名         | 类型                  | 说明    |
+| q           | string              | 匹配关键字 |
+| **Respone** | **DataType : json** |       |
+| 参数名         | 类型                  | 说明    |
 返回数据格式
 ```
 [
@@ -1087,12 +1086,12 @@ q不为空时但搜索结果为空，返回数据格式
 ### 19.游戏评论
 请求地址：{gcenter_host}/games/{game_id}/comments
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|page|int|页数|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| page        | int                 | 页数   |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -1115,38 +1114,38 @@ q不为空时但搜索结果为空，返回数据格式
 ### 20.提交游戏评论
 请求地址：{gcenter_host}/games/{game_id}/comments
 
-|Request|Method : POST||
-|---|---|---|
-|参数名|类型|说明|
-|star|int|评分|
-|content|string|评论内容|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : POST       |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| star        | int                 | 评分   |
+| content     | string              | 评论内容 |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 > 返回message信息，提交失败会有error信息
 
 <br>
 ### 21.数据中心
 请求地址：{dcenter_host}
 
-|Request|Method : POST||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|data|string|操作字符串|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
-|/|/|/|
+| Request     | Method : POST       |       |
+| ----------- | ------------------- | ----- |
+| 参数名         | 类型                  | 说明    |
+| /           | /                   | /     |
+| data        | string              | 操作字符串 |
+| **Respone** | **DataType : json** |       |
+| 参数名         | 类型                  | 说明    |
+| /           | /                   | /     |
 
 <br>
 ### 22.检查更新
 请求地址：{gcenter_host}/clients/releases/latest
 
-|Request|Method : GET||
-|---|---|---|
-|/|/|/|
-|参数名|类型|说明|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| /           | /                   | /    |
+| 参数名         | 类型                  | 说明   |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 {
@@ -1169,12 +1168,12 @@ q不为空时但搜索结果为空，返回数据格式
 ### 23.游戏管理
 请求地址：{gcenter_host}/game/manage
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|data|string（json格式）|要匹配查询的游戏信息|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |            |
+| ----------- | ------------------- | ---------- |
+| 参数名         | 类型                  | 说明         |
+| data        | string（json格式）      | 要匹配查询的游戏信息 |
+| **Respone** | **DataType : json** |            |
+| 参数名         | 类型                  | 说明         |
 with参数格式为
 ```
 [
@@ -1200,12 +1199,12 @@ with参数格式为
 ### 24.反馈信息展示
 请求地址：{gcenter_host}/feedbacks
 
-|Request|Method : get||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : get        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -1234,12 +1233,12 @@ with参数格式为
 ### 25.提交反馈
 请求地址：{gcenter_host}/feedbacks
 
-|Request|Method : POST||
-|---|---|---|
-|参数名|类型|说明|
-|content/image|string 或者 file|反馈内容|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request       | Method : POST       |      |
+| ------------- | ------------------- | ---- |
+| 参数名           | 类型                  | 说明   |
+| content/image | string 或者 file      | 反馈内容 |
+| **Respone**   | **DataType : json** |      |
+| 参数名           | 类型                  | 说明   |
 返回数据格式
 ```
  [
@@ -1289,12 +1288,12 @@ with参数格式为
 ### 26.标签详情页
 请求地址：{gcenter_host}/tags/{id}
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|page|int|页数|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| page        | int                 | 页数   |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 [
@@ -1318,12 +1317,12 @@ with参数格式为
 ### 27.个推资源请求接口
 请求地址：{gcenter_host}/push/{id}
 
-|Request|Method : GET||
-|---|---|---|
-|参数名|类型|说明|
-|/|/|/|
-|**Respone**|**DataType : json**||
-|参数名|类型|说明|
+| Request     | Method : GET        |      |
+| ----------- | ------------------- | ---- |
+| 参数名         | 类型                  | 说明   |
+| /           | /                   | /    |
+| **Respone** | **DataType : json** |      |
+| 参数名         | 类型                  | 说明   |
 返回数据格式
 ```
 类型为游戏时返回格式
