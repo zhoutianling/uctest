@@ -1,7 +1,5 @@
 # 天天游戏中心API文档 
 
-# 天天游戏中心API文档 
-
 * [<strong>天天游戏中心API文档</strong>](#天天游戏中心api文档)
     * [<strong>规格说明</strong>](#规格说明)
     * [<strong>http请求头部参数</strong>](#http请求头部参数)
