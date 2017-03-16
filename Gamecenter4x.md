@@ -256,11 +256,8 @@ json文件，格式如下
                 "color":"D94600",    // 颜色，RGB值
                 "url":"http://www.example.com"  // 跳转h5页面时的地址，没有时为空，
                 "page_name_410":"h5|applist|topic|game" // 新增4种类型：410版本只识别h5类型，其余类型为null,
-                "data": {
-                  id: 1,
-                  text: "xxx"
-                }, // 除了h5类型外，其余类型将新增data属性值
-            },
+                "data": 1 // 类型返回id值
+            },
             {
                 "page_name":"YM-SWD",
                 "title":"社区",
@@ -268,10 +265,7 @@ json文件，格式如下
                 "color":"006000",
                 "url":"http://www.example.com"，
                 "page_name_410":"h5|applist|topic|game" // 新增4种类型：410版本只识别h5类型，其余类型为null,
-                "data": {
-                  id: 1,
-                  text: "xxx"
-                }, // 除了h5类型外，其余类型将新增data属性值
+                "data": 1 // 类型返回id值
             },
             {
                 "page_name":"YM-GB",
@@ -280,10 +274,7 @@ json文件，格式如下
                 "color":"f75c54",
                 "url":"http://www.example.com"，
                 "page_name_410":"h5|applist|topic|game" // 新增4种类型：410版本只识别h5类型，其余类型为null,
-                "data": {
-                  id: 1,
-                  text: "xxx"
-                }, // 除了h5类型外，其余类型将新增data属性值
+                "data": 1 // 类型返回id值
             },
             {
                 "page_name":"活动列表页",
@@ -292,10 +283,7 @@ json文件，格式如下
                 "color":"930093",
                 "url":"http://www.example.com"，
                 "page_name_410":"h5|applist|topic|game" // 新增4种类型：410版本只识别h5类型，其余类型为null,
-                "data": {
-                  id: 1,
-                  text: "xxx"
-                }, // 除了h5类型外，其余类型将新增data属性值
+                "data": 1 // 类型返回id值
             }
         ]
     },
