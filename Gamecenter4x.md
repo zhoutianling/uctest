@@ -186,7 +186,33 @@ json文件，格式如下
         "image":"xxxx.png",
         "url":"",                               // 若有此值，则点击跳h5页面
         "game":{game_base_info}       // 若有此值，则点击跳游戏详情页
-    }
+    },
+    "bottom_menus": [
+      {
+       "name": "精选",
+       "selected_menu_pic": "", // 点击状态的图片
+       "unselected_menu_pic": "", // 未点击状态的图片
+       "status": 1
+     },
+     {
+       "name": "排行",
+       "selected_menu_pic": "",
+       "unselected_menu_pic": "",
+       "status": 1
+     },
+     {
+       "name": "分类",
+       "selected_menu_pic": "",
+       "unselected_menu_pic": "",
+       "status": 1
+     },
+     {
+       "name": "管理",
+       "selected_menu_pic": "",
+       "unselected_menu_pic": "",
+       "status": 1
+     }
+    ]
     "necessary":[$data]   // 精选必玩数据（第一次启动时有该数据）
 }
 ```
